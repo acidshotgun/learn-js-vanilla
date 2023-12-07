@@ -75,6 +75,7 @@ console.log(age); // NaN, преобразование не удалось
 ```javascript
 console.log(Number("     123     ")); // 123 ((пустые символы удаляются (пробелы)))
 console.log(Number("")); // 0 (пустые символы удаляются (пробелы)) если числа нет => 0
+console.log(Number("01")); // 1 (Ноль убирается)
 console.log(Number("123жопа")); // NaN (есть строка)
 console.log(Number(null)); // 0
 console.log(Number(undefined)); // NaN
