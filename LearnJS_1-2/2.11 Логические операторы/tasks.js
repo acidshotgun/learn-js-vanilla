@@ -83,7 +83,7 @@ if (null || (-1 && 1)) console.log("third"); // да
 // Подсказка: передача пустого ввода в приглашение prompt возвращает пустую строку ''.
 // Нажатие клавиши Esc во время запроса возвращает null.
 
-let answer = prompt("Кто там?");
+let answer = prompt("Кто там?"); //         [+]
 
 if (answer == "Админ") {
   console.log(answer);
