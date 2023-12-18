@@ -33,3 +33,5 @@
 <br>
 
 <h2>Задача 2</h2>
+
+![](https://github.com/acidshotgun/learn-js-vanilla/blob/master/LearnJS_3/%D0%97%D0%90%D0%94%D0%90%D0%A7%D0%98%20git_1-2/img/git2.jpg)
