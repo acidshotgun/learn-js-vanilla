@@ -81,3 +81,16 @@
     "likes birds": true  // имя свойства из нескольких слов должно быть в кавычках
   };
 ```
+
+<br>
+<br>
+
+===================
+
+![](https://github.com/acidshotgun/learn-js-vanilla/blob/master/LearnJS_4/4.1%20%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B/img/obj1.jpg)
+
+<hr>
+<br>
+<br>
+
+<h2>Квадратные скобки</h2>
