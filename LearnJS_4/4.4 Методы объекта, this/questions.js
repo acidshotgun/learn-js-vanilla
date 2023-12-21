@@ -32,7 +32,25 @@ userCopy.sayHi();
 
 /*
   ВОПРОСЫ:
-  1) Что выводит this при function()? - объект???
-  2) Что выводит this при () => {}? ======== {} что за {}???
-
+  1) Что выводит this внутри function()? - глобальный объект???
+  2) ЧТо выводит this как просто console.log(this) - глобальный объект???
+  3) Что выводит this при () => {}? ======== {} что за {}???
 */
+
+// 1)
+function someFunc() {
+  console.log(this);
+}
+
+someFunc();
+
+// Спросить про это
+const hui = {
+  name: "Apple",
+  age: this.name, // тут undefined, тк this - глобал
+  showThis() {
+    console.log(this); // тут контекст this - это объект hui
+  },
+};
+
+hui.showThis();
