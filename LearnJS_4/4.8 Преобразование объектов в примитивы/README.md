@@ -96,3 +96,37 @@
 <br>
 
 <h2>toString/valueOf</h2>
+
+- [ ] Если нет Symbol.toPrimitive, тогда JavaScript пытается найти методы toString и valueOf:
+
+  + Для хинта "string": вызвать метод `toString`, `а если он не существует или возвращает объект вместо примитивного значения`, то `valueOf` (таким образом, `toString`имеет приоритет при строковом преобразовании).
+  + Для других хинтов: вызвать метод `valueOf`, `а если он не существует или возвращает объект вместо примитивного значения`, то `toString` (таким образом, `valueOf` имеет приоритет для математических операций).
+     
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/6518bac6-38fb-4a2f-817a-0a738c7e6bb5)
+
+<br>
+<br>
+
++ Для примера, используем их в реализации всё того же объекта user. Но уже используя комбинацию `toString и valueOf` вместо `Symbol.toPrimitive`:
+
+```javascript
+  let user = {
+    name: "John",
+    money: 1000,
+  
+    // для хинта равного "string"
+    toString() {
+      return `{name: "${this.name}"}`;
+    },
+  
+    // для хинта равного "number" или "default"
+    valueOf() {
+      return this.money;
+    }
+  
+  };
+  
+  alert(user); // toString -> {name: "John"}
+  alert(+user); // valueOf -> 1000
+  alert(user + 500); // valueOf -> 1500
+```
