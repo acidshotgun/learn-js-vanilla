@@ -23,12 +23,3 @@ const test = {
 console.log(test * 2);
 
 ///////////
-
-const obj = {
-  name: "popa",
-  "my age": 15,
-};
-
-obj.isAdmin = true;
-
-console.log(obj["my age"]);
