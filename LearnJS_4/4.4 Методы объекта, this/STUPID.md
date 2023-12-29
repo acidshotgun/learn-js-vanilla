@@ -149,3 +149,26 @@
       
       obj1.method(); // window, тк контекст на момент объявления - это global/window
 ```
+
+<hr>
+<br>
+<br>
+
+<h2>ЗАДАЧА 2</h2>
+
++ Это классический пример, при котором стрелочная ф-я будет брать контекст `this` из окружения выше. А конкретно контекст ф-ии `method()` = `function decloration`
+
+```javascript
+      const obj1 = {
+        name: "Object 1",
+        method: function () {
+          const func = () => {
+            console.log(this);
+          };
+      
+          func();
+        },
+      };
+      
+      obj1.method(); // { name: 'Object 1', method: [Function: method] }
+```
