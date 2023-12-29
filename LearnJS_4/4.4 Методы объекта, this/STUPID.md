@@ -137,7 +137,7 @@
 
 ```javascript
       const func = () => {
-        console.log(this);
+        console.log(this); // global/window
       };
       
       const obj1 = {
