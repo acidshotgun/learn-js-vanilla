@@ -1,14 +1,14 @@
 "use strict";
 
-const obj = {
-  name: "какойта объект",
+const obj1 = {
+  name: "Object 1",
   method: function () {
-    console.log(this);
+    const func = () => {
+      console.log(this);
+    };
+
+    func();
   },
 };
 
-obj.method();
-
-// const func = obj.method.bind(obj);
-const func = obj.method;
-func();
+obj1.method();
