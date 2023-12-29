@@ -84,3 +84,35 @@
       anotherObj.method(); // "I'm another property"
 
 ```
+
+<hr>
+<br>
+<br>
+
+<h2>ЗАДАЧА 3</h2>
+
+- [ ] Аналогичный прошлым пример. Показывает опять, что контекст `this` определяется в момент вызова метода.
+
++ В примере есть фенкция, которая выводит в лог `this.name`, которая казалось бы должна иметь `undefined`
++ Но эту функцию мы присваиваем объектам в кач-ве методо по ссылкам.
++ Соотв после вызова этих методов, контекст для них будет определен и равен их объектам.
+
+```javascript
+      function sayName() {
+        console.log(this.name);
+      }
+      
+      const obj1 = {
+        name: "Object 1",
+      };
+      
+      const obj2 = {
+        name: "Object 2",
+      };
+      
+      obj1.say = sayName;
+      obj2.say = sayName;
+      
+      obj1.say(); // Object 1
+      obj2.say(); // Object 2
+```
