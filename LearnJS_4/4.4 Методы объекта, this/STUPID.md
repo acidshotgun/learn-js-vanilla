@@ -45,5 +45,5 @@
   
   // const func = obj.method.bind(obj);
   const func = obj.method;
-  func();
+  func(); // window / undefined
 ```
