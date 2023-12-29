@@ -47,3 +47,5 @@
   const func = obj.method;
   func(); // window / undefined
 ```
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/5da55ce4-571e-4ff3-ba06-d9e3afe09466)
