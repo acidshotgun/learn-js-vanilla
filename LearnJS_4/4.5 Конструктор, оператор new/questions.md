@@ -22,7 +22,8 @@
     this.sayHello = function () {
       console.log(`Привет, я ${this.name}`);
     };
-  
+
+    // Ссылка на внешнюю ф-ю
     this.sayAge = showAge;
   }
   
