@@ -1,4 +1,12 @@
 # ЗАДАЧИ
 
-- [ ] Повторить 4.4 и 4.5
-- [ ] Скипнул 4.7 - пройти позже
+- [ ] Задание `singletone`
+
+  [https://refactoring.guru/](https://refactoring.guru/ru/design-patterns/catalog)
+
+  + Одиночка
+  + Прототип
+  + State
+  + Memento
+
+
