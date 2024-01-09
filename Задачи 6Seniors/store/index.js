@@ -7,9 +7,24 @@ class Customer {
   }
 
   // Оплотить корзину
-  buyProducts(store, order = this.order) {
-    store.warehouse.sellProductsFromWarehouse(order);
-  }
+  // buyProducts(store, order = this.order) {
+  //   const totalPrice = this.getTotalOrderPrice();
+  //   const check = {};
+
+  //   if (totalPrice >= this.money) {
+  //     return console.log("Не хватает средств на оплату корзины.");
+  //   }
+
+  //   const status = store.toSell(order);
+
+  //   if (status) {
+  //     this.money -= totalPrice;
+  //     store.money += totalPrice;
+
+  //     check[store.name] = order;
+  //     console.log(this.bag);
+  //   }
+  // }
 
   // Добавить товар в корзину
   addItemsToOrder(store, product, count) {
@@ -46,11 +61,11 @@ class Customer {
   }
 
   // Посмотреть корзину
-  getOrder() {
+  getOrderInfo() {
     let counter = 0;
 
     for (let key in this.order) {
-      counter += this.order[key].price * this.order[key].count;
+      counter += this.getTotalOrderPrice();
 
       console.log(
         `${key}: ${this.order[key].count}шт. на сумму ${
@@ -60,6 +75,16 @@ class Customer {
     }
 
     console.log(`Общая сумма ${counter} руб.`);
+  }
+
+  getTotalOrderPrice() {
+    let totalPrice = 0;
+
+    for (let key in this.order) {
+      totalPrice += this.order[key].price * this.order[key].count;
+    }
+
+    return totalPrice;
   }
 }
 
@@ -85,22 +110,32 @@ class Warehouse {
     На кассе в зависимости от этого продаем/не продаем
   */
   sellProductsFromWarehouse(order) {
-    // let status = true;
+    let isFound = false;
 
     for (let key in order) {
-      console.log(key);
-
       for (let i = 0; i < this.warehouseStock.length; i++) {
         if (
           this.warehouseStock[i].name === key &&
           this.warehouseStock[i].count >= order[key].count
         ) {
           this.warehouseStock[i].count -= order[key].count;
-        } else {
-          // status = false;
+          isFound = true;
+          break;
+        }
+
+        if (!isFound) {
+          return {
+            status: false,
+            message: "Не удалось совершить продажу.",
+          };
         }
       }
     }
+
+    return {
+      status: true,
+      message: "Выбранные товары проданы.",
+    };
   }
 
   /*
@@ -165,10 +200,14 @@ class Store {
     this.warehouse = new Warehouse(supply);
   }
 
-  toSell(order) {}
+  // ДОДЕЛАТЬ
+  // toSell(order) {
+  //   const status = this.warehouse.sellProductsFromWarehouse(order);
+  //   return status;
+  // }
 }
 
-const customerJack = new Customer("Jack", 1500);
+const customerJack = new Customer("Jack", 35000);
 const adidas = new Store("Adidas");
 
 console.log(customerJack);
@@ -185,10 +224,8 @@ console.log(customerJack);
 // customerJack.buyProducts(adidas);
 // console.log(adidas.warehouse.checkWaehouseStock());
 
-console.log(adidas.warehouse.checkWaehouseStock());
 customerJack.addItemsToOrder(adidas, "Кроссовки", 19);
 customerJack.addItemsToOrder(adidas, "Футболка", 39);
 customerJack.addItemsToOrder(adidas, "Носки", 99);
 
 customerJack.buyProducts(adidas);
-console.log(adidas.warehouse.checkWaehouseStock());
