@@ -7,7 +7,9 @@ class Customer {
   }
 
   // Оплотить корзину
-  buyProducts(store, order = this.order) {}
+  buyProducts(store, order = this.order) {
+    store.warehouse.sellProductsFromWarehouse(order);
+  }
 
   // Добавить товар в корзину
   addItemsToOrder(store, product, count) {
@@ -72,6 +74,33 @@ const supply = [
 class Warehouse {
   constructor(initialProduct) {
     this.warehouseStock = initialProduct;
+  }
+
+  // Удалить продукты со склада при продаже
+  /* TODO
+    Что аозвращает метод?
+    Вернет true значит товары списались со склада
+    Вернет false значит товары не списались со склада
+    
+    На кассе в зависимости от этого продаем/не продаем
+  */
+  sellProductsFromWarehouse(order) {
+    // let status = true;
+
+    for (let key in order) {
+      console.log(key);
+
+      for (let i = 0; i < this.warehouseStock.length; i++) {
+        if (
+          this.warehouseStock[i].name === key &&
+          this.warehouseStock[i].count >= order[key].count
+        ) {
+          this.warehouseStock[i].count -= order[key].count;
+        } else {
+          // status = false;
+        }
+      }
+    }
   }
 
   /*
@@ -144,11 +173,22 @@ const adidas = new Store("Adidas");
 
 console.log(customerJack);
 // console.log(adidas.warehouse.sendProductFromWarehouse("Кроссовки", 3));
-customerJack.addItemsToOrder(adidas, "Кроссовки", 3);
-customerJack.addItemsToOrder(adidas, "Кроссовки", 3);
-customerJack.addItemsToOrder(adidas, "Футболка", 3);
-customerJack.addItemsToOrder(adidas, "Футболка", 50);
-customerJack.addItemsToOrder(adidas, "Носки", 2);
-customerJack.removeItemsFromOrder("Кроссовки", 2);
-customerJack.removeItemsFromOrder("Шорты", 2);
-customerJack.getOrder();
+
+// customerJack.addItemsToOrder(adidas, "Кроссовки", 3);
+// customerJack.addItemsToOrder(adidas, "Кроссовки", 3);
+// customerJack.addItemsToOrder(adidas, "Футболка", 3);
+// customerJack.addItemsToOrder(adidas, "Футболка", 50);
+// customerJack.addItemsToOrder(adidas, "Носки", 2);
+// customerJack.removeItemsFromOrder("Кроссовки", 2);
+// customerJack.removeItemsFromOrder("Шорты", 2);
+// customerJack.getOrder();
+// customerJack.buyProducts(adidas);
+// console.log(adidas.warehouse.checkWaehouseStock());
+
+console.log(adidas.warehouse.checkWaehouseStock());
+customerJack.addItemsToOrder(adidas, "Кроссовки", 19);
+customerJack.addItemsToOrder(adidas, "Футболка", 39);
+customerJack.addItemsToOrder(adidas, "Носки", 99);
+
+customerJack.buyProducts(adidas);
+console.log(adidas.warehouse.checkWaehouseStock());
