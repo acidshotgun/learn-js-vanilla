@@ -1,30 +1,34 @@
 class Customer {
   order = {};
+  inventory = {};
 
   constructor(name, money) {
     this.name = name;
     this.money = money;
   }
 
-  // Оплотить корзину
-  // buyProducts(store, order = this.order) {
-  //   const totalPrice = this.getTotalOrderPrice();
-  //   const check = {};
+  checkInventory() {
+    console.log(this.inventory);
+  }
 
-  //   if (totalPrice >= this.money) {
-  //     return console.log("Не хватает средств на оплату корзины.");
-  //   }
+  // Оплатить корзину
+  buyProducts(store, order = this.order) {
+    const totalPrice = this.getTotalOrderPrice();
+    console.log(totalPrice);
 
-  //   const status = store.toSell(order);
+    if (totalPrice >= this.money) {
+      return console.log("Не хватает средств на оплату корзины.");
+    }
 
-  //   if (status) {
-  //     this.money -= totalPrice;
-  //     store.money += totalPrice;
+    // Передаем заказ на кассу
+    const check = store.sellProduct(order);
 
-  //     check[store.name] = order;
-  //     console.log(this.bag);
-  //   }
-  // }
+    this.spendMoney(totalPrice);
+    store.putMoneyInCash(totalPrice);
+
+    this.inventory[store.name] = check;
+    this.order = {};
+  }
 
   // Добавить товар в корзину
   addItemsToOrder(store, product, count) {
@@ -62,11 +66,9 @@ class Customer {
 
   // Посмотреть корзину
   getOrderInfo() {
-    let counter = 0;
+    let counter = this.getTotalOrderPrice();
 
     for (let key in this.order) {
-      counter += this.getTotalOrderPrice();
-
       console.log(
         `${key}: ${this.order[key].count}шт. на сумму ${
           this.order[key].count * this.order[key].price
@@ -86,6 +88,10 @@ class Customer {
 
     return totalPrice;
   }
+
+  spendMoney(price) {
+    this.money -= price;
+  }
 }
 
 // Поставка на склад | начальное состояние склада
@@ -102,13 +108,6 @@ class Warehouse {
   }
 
   // Удалить продукты со склада при продаже
-  /* TODO
-    Что аозвращает метод?
-    Вернет true значит товары списались со склада
-    Вернет false значит товары не списались со склада
-    
-    На кассе в зависимости от этого продаем/не продаем
-  */
   sellProductsFromWarehouse(order) {
     let isFound = false;
 
@@ -149,9 +148,6 @@ class Warehouse {
         product === this.warehouseStock[i].name &&
         count <= this.warehouseStock[i].count
       ) {
-        // Не делаем, тк товар не продается, а просто добавляется в корзину
-        // this.warehouseStock[i].count -= count;
-
         return {
           name: this.warehouseStock[i].name,
           price: this.warehouseStock[i].price,
@@ -200,32 +196,40 @@ class Store {
     this.warehouse = new Warehouse(supply);
   }
 
-  // ДОДЕЛАТЬ
-  // toSell(order) {
-  //   const status = this.warehouse.sellProductsFromWarehouse(order);
-  //   return status;
-  // }
+  // Продать товары
+  sellProduct(order) {
+    const check = {};
+
+    const removeFromWarehouseStatus =
+      this.warehouse.sellProductsFromWarehouse(order);
+
+    if (removeFromWarehouseStatus) {
+      for (let key in order) {
+        const { price, count } = order[key];
+        check[key] = { count: count, totalPrice: price * count };
+      }
+    }
+
+    return check;
+  }
+
+  putMoneyInCash(money) {
+    this.money += money;
+  }
 }
 
 const customerJack = new Customer("Jack", 35000);
 const adidas = new Store("Adidas");
 
 console.log(customerJack);
-// console.log(adidas.warehouse.sendProductFromWarehouse("Кроссовки", 3));
+console.log(adidas);
 
-// customerJack.addItemsToOrder(adidas, "Кроссовки", 3);
-// customerJack.addItemsToOrder(adidas, "Кроссовки", 3);
-// customerJack.addItemsToOrder(adidas, "Футболка", 3);
-// customerJack.addItemsToOrder(adidas, "Футболка", 50);
-// customerJack.addItemsToOrder(adidas, "Носки", 2);
-// customerJack.removeItemsFromOrder("Кроссовки", 2);
-// customerJack.removeItemsFromOrder("Шорты", 2);
-// customerJack.getOrder();
-// customerJack.buyProducts(adidas);
-// console.log(adidas.warehouse.checkWaehouseStock());
-
-customerJack.addItemsToOrder(adidas, "Кроссовки", 19);
-customerJack.addItemsToOrder(adidas, "Футболка", 39);
-customerJack.addItemsToOrder(adidas, "Носки", 99);
-
+customerJack.addItemsToOrder(adidas, "Кроссовки", 3);
+customerJack.addItemsToOrder(adidas, "Футболка", 3);
+customerJack.addItemsToOrder(adidas, "Носки", 2);
+customerJack.getOrderInfo();
+customerJack.getTotalOrderPrice();
 customerJack.buyProducts(adidas);
+
+console.log(customerJack);
+console.log(adidas);
