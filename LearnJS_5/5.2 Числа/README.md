@@ -153,4 +153,18 @@
 
   <br>
 
-  + `isFinite(value)` преобразует аргумент в число и возвращает `true`, если оно является обычным числом, т.е. не `NaN/Infinity/-Infinity`:
+  + `isFinite(value)` `преобразует аргумент в число` и возвращает `true`, если оно является обычным числом, т.е. не `NaN/Infinity/-Infinity`:
+     
+    ```javascript
+      console.log(isFinite("15")); // true (Само преобразует в число)
+      console.log(isFinite("str")); // false, потому что специальное значение: NaN
+      console.log(isFinite(Infinity)); // false, потому что специальное значение: Infinity
+
+      console.log(isFinite("")); // true (Пустая строка ""/" " интерпритируется как 0)
+      console.log(isFinite("123fff")); // false (Преобразует в число. 123fff == NaN (Не прохдит проверку))
+      console.log(isFinite(false)); // true (Преобразует в число. False == 0 (число))
+      console.log(isFinite(true)); // true (Преобразует в число. False == 1 (число))
+      
+      console.log(isFinite(undefined)); // false (Преобразует в число. Undefined == NaN (не проходит проверку))
+      console.log(isFinite(null)); // true (Преобразует в число. Null == 0 (число))
+    ```
