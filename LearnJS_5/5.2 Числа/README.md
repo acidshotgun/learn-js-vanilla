@@ -187,3 +187,12 @@
       console.log(isFinite(obj)); true (преобразовали к примитиву 15)
     
     ```
+
+<hr>
+<br>
+<br>
+
+<h2>Проверка: Number.isFinite и Number.isNaN</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/39193f67-f647-4471-837d-6ea2b49a4d81)
+
