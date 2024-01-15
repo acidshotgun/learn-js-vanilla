@@ -167,4 +167,23 @@
       
       console.log(isFinite(undefined)); // false (Преобразует в число. Undefined == NaN (не проходит проверку))
       console.log(isFinite(null)); // true (Преобразует в число. Null == 0 (число))
+
+
+    // Объект
+
+      console.log(isFinite({ number: 15 })); // false (Попытка преобразования объекта к примитиву == NaN)
+
+      const obj = {
+        number: 15,
+        string: "Привет",
+      
+        [Symbol.toPrimitive](hint) {
+          console.log(hint);
+      
+          return hint === "number" ? this.number : this.string;
+        },
+      };
+      
+      console.log(isFinite(obj)); true (преобразовали к примитиву 15)
+    
     ```
