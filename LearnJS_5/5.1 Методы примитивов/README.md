@@ -93,3 +93,15 @@
   + Все примитивы, кроме `null` и `undefined`, предоставляют множество полезных методов.
   + Формально эти методы работают с помощью временных объектов, но движки JavaScript внутренне очень хорошо оптимизируют этот процесс, так что их вызов не требует много ресурсов.
 
+<hr>
+<br>
+<br>
+
+<h2>ЗАДАЧА</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/aa999802-c860-4b0a-abc8-814ac1705951)
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/9a2fcd75-52f8-408d-a673-ddacf72a130b)
+
+
+
