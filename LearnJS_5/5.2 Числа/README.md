@@ -153,7 +153,7 @@
 
   <br>
 
-  + `isFinite(value)` `преобразует аргумент в число` и возвращает `true`, если оно является обычным числом, т.е. не `NaN/Infinity/-Infinity`:
+  + `isFinite(value)` **`преобразует аргумент в число`** и возвращает `true`, если оно является обычным числом, т.е. не `NaN/Infinity/-Infinity`:
      
     ```javascript
       console.log(isFinite("15")); // true (Само преобразует в число)
