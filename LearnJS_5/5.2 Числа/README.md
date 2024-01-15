@@ -196,3 +196,47 @@
 
 ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/39193f67-f647-4471-837d-6ea2b49a4d81)
 
+- [x] Рботают аналогично `isFinite и isNaN`, но сначала строго проверяют значения на тип `number`.
+
+  + `Number.isNaN(value)` возвращает `true` только в том случае, если аргумент принадлежит к типу `number` и является `NaN`. Во всех остальных случаях возвращает `false`.
+
+    ```javascript
+      console.log(Number.isNaN(NaN)); // true (number и == NaN)
+      console.log(Number.isNaN("str")); // false (NaN, но !== number)
+      console.log(Number.isNaN(5)); // fasle (Number, но !== NaN)
+    ```
+
+  <br>
+
+  + `Number.isFinite(value)` возвращает `true` только в том случае, если аргумент принадлежит к типу `number` и не является `NaN/Infinity/-Infinity`. Во всех остальных случаях возвращает `false`.
+     
+    ```javascript
+      console.log(Number.isFinite("15")); // fasle (Не number)
+      console.log(Number.isFinite("str")); // fasle (Не number)
+      console.log(Number.isFinite(Infinity)); // fasle (Number, но == Infinity)
+      
+      console.log(Number.isFinite("")); // fasle (Не number)
+      console.log(Number.isFinite("123fff")); // fasle (Не number)
+      console.log(Number.isFinite(false)); // fasle (Не number)
+      console.log(Number.isFinite(true)); // fasle (Не number)
+      
+      console.log(Number.isFinite(undefined)); // false (Преобразует в число. Undefined == NaN (не проходит проверку))
+      console.log(Number.isFinite(null)); // fasle (Не number)
+
+    // Объект
+
+      console.log(Number.isFinite({ number: 15 })); // false (Object !== number)
+      
+      const obj = {
+        number: 15,
+        string: "Привет",
+      
+        [Symbol.toPrimitive](hint) {
+          console.log(hint);
+      
+          return hint === "number" ? this.number : this.string;
+        },
+      };
+      
+      console.log(Number.isFinite(obj)); // fasle (Object !== number)
+    ```
