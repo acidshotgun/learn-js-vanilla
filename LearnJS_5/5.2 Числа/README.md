@@ -303,3 +303,27 @@
 ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/f50fd8e2-cbae-4137-97be-7615bda38734)
 
 - [x] В объекте Math есть множество функций и констант, включая тригонометрические функции, подробнее можно ознакомиться в документации по объекту [Math](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math)
+
+<hr>
+<br>
+<br>
+
+<h2>Итого</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/a9d28a92-0991-4b60-8abc-8eb801bca5b8)
+
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/c4d16adb-96b8-4736-9ef2-2bcec4a5c50c)
+
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/910dcee3-1ed6-40e7-8322-54baf5255b79)
+
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/1e4209bd-752e-4f3c-bf9d-2ffc9fd82d17)
+
+<br>
+
+- [x] Ещё больше математических функций: Документация по объекту [Math](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math). Библиотека маленькая, но содержит всё самое важное.
