@@ -240,3 +240,27 @@
       
       console.log(Number.isFinite(obj)); // fasle (Object !== number)
     ```
+
+<hr>
+<br>
+<br>
+
+<h2>Сравнение Object.is</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/291c320b-4205-47c0-88ff-cbb9664e13b7)
+
+```javascript
+  // 0 и -0
+  let a = 0;
+  let b = -0;
+  
+  console.log(a === b); // true 0 === -0, странно
+  console.log(Object.is(a, b)); // false
+  
+  // NaN и NaN
+  let c = NaN;
+  let d = NaN;
+  
+  console.log(c === d); // false (NaN ничему не равно даже себе)
+  console.log(Object.is(c, d)); // true (Тут они равноы)
+```
