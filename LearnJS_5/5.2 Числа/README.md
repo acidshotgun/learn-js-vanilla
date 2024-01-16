@@ -264,3 +264,38 @@
   console.log(c === d); // false (NaN ничему не равно даже себе)
   console.log(Object.is(c, d)); // true (Тут они равноы)
 ```
+
+<hr>
+<br>
+<br>
+
+<h2>parseInt и parseFloat</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/0201e4ed-17a1-4d19-b0e1-af48df26ac81)
+
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/cf0821bf-1867-494f-9853-7d800a483b8e)
+
+  ```javascript
+    // Стандартное поведение
+    console.log(parseInt("522px")); // 522
+    console.log(parseFloat("12.45px")); // 12.45
+    
+    // Не стандарт
+    console.log(parseInt("12.5")); // 12 - parseInt вернет целую часть
+    console.log(parseFloat("12.5.55")); // 12.5 - parseFloat остановится на второй точке
+  ```
+
++ Функции `parseInt/parseFloat` вернут `NaN`, если не смогли прочитать ни одну цифру:
+
+  ```javascript
+    console.log(parseInt("a123")); // NaN - тк начинается с буквы
+    console.log(parseInt("a12.5")); // NaN - тк начинается с буквы
+  ```
+
+<hr>
+<br>
+<br>
+
+<h2>Другие математические функции</h2>
