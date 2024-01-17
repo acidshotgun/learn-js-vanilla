@@ -300,16 +300,16 @@
 
 <h2>Другие математические функции</h2>
 
-![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/f50fd8e2-cbae-4137-97be-7615bda38734)
-
 ```javascript
-  // Чтобы задать диапозон до какого-то числа - нужно на него умножить
+  // Чтобы задать диапозон до какого-то числа (получение рандомного - нужно на него умножить
   function getRandomInt(max) {
     return Math.random() * max;
   }
   
   console.log(getRandomInt(10)); // рандомное от 0 до 10
 ```
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/f50fd8e2-cbae-4137-97be-7615bda38734)
 
 - [x] В объекте Math есть множество функций и констант, включая тригонометрические функции, подробнее можно ознакомиться в документации по объекту [Math](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math)
 
