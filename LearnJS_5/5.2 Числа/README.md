@@ -301,12 +301,19 @@
 <h2>Другие математические функции</h2>
 
 ```javascript
-  // Чтобы задать диапозон до какого-то числа (получение рандомного - нужно на него умножить
+  // Чтобы задать до какого-то числа - нужно на него умножить
   function getRandomInt(max) {
     return Math.random() * max;
   }
   
   console.log(getRandomInt(10)); // рандомное от 0 до 10
+  
+  // Чтобы получить в диапозоне чисел - нужно на него умножить
+  function getRandomIntTwo(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+  
+  console.log(getRandomIntTwo(5, 10)); // рандомное от 5 до 10
 ```
 
 ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/f50fd8e2-cbae-4137-97be-7615bda38734)
