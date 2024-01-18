@@ -65,3 +65,84 @@ function getRandom1(min, max) {
 }
 
 console.log(getRandom1(1, 20));
+
+// CHAT GPT
+
+/*
+  1) Проверка на четность:
+  Напишите функцию, которая принимает число в качестве аргумента и возвращает true, если число четное, и false в противном случае.
+*/
+
+const checkEvenNum = (num) => {
+  return num % 2 == 0 ? true : false;
+};
+
+console.log(checkEvenNum(3));
+
+/*
+  2) Сумма цифр:
+  Напишите функцию, которая принимает число и возвращает сумму его цифр.
+*/
+
+const sumOfDigits = (num) => {
+  let stringNum = String(num);
+  let counter = 0;
+
+  for (let key of stringNum) {
+    counter += Number(key);
+  }
+
+  return counter;
+};
+
+console.log(sumOfDigits(55510));
+
+/*
+  3) Максимальная цифра:
+  Напишите функцию, которая принимает число и возвращает самую большую цифру в этом числе.
+*/
+
+const maxDigit = (num) => {
+  let stringNum = String(num);
+  let maxDigit = 0;
+
+  for (let key of stringNum) {
+    if (+key > maxDigit) {
+      maxDigit = +key;
+    }
+  }
+
+  return maxDigit;
+};
+
+console.log(maxDigit(1234111119));
+
+/*
+  4) Обратное число:
+  Напишите функцию, которая принимает число и возвращает его обратное число. Например, для входа 123 функция должна вернуть 321.
+*/
+
+const reverseNumber = (num) => Number(String(num).split("").reverse().join(""));
+
+console.log(reverseNumber(123456789101));
+
+/*
+  5) Факториал:
+  Напишите функцию, которая принимает число и возвращает его факториал.
+*/
+
+const factorial = (num) => {
+  if (num < 0) {
+    return "Для отрицательного числа нет факториала";
+  }
+
+  let result = 1;
+
+  for (let i = 1; i <= num; i++) {
+    result *= i;
+  }
+
+  return result;
+};
+
+console.log(factorial(6));
