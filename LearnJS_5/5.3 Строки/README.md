@@ -137,7 +137,7 @@
 
 - [ ] Существует несколько способов поиска подстроки.
 
-  <h3>str.indexOf</h3>
+  <h3>+ str.indexOf</h3>
 
   + Он ищет подстроку `substr` в строке `str`, начиная с позиции `pos`, и возвращает позицию, на которой располагается совпадение, либо `-1` при отсутствии совпадений.
      
@@ -162,6 +162,25 @@
 
     ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/4a8eeab3-d707-4bc8-93b6-73af4eb94d8f)
 
-  <h3>includes, startsWith, endsWith</h3>
+  <h3>+ includes, startsWith, endsWith</h3>
 
+  + Более современный метод `str.includes(substr, pos)` возвращает `true`, если в строке `str` есть подстрока `substr`, либо `false`, если нет.
+
+  + Это — правильный выбор, если нам необходимо проверить, есть ли совпадение, но позиция не нужна:
   
+    ```javascript
+      console.log("Widget with id".includes("Widget")); // true
+
+      console.log("Hello".includes("Bye")); // false
+
+      // Необязательный второй аргумент str.includes позволяет начать поиск с определённой позиции:
+      console.log("Midget".includes("id")); // true
+      console.log("Midget".includes("id", 3)); // false, поиск начат с позиции 3
+    ```
+
+  + Методы `str.startsWith` и `str.endsWith` проверяют, соответственно, начинается ли и заканчивается ли строка определённой строкой:
+     
+    ```javascript
+      console.log("Widget".startsWith("Wid")); // true, "Wid" — начало "Widget"
+      console.log("Widget".endsWith("get")); // true, "get" — окончание "Widget"
+    ```
