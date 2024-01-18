@@ -109,3 +109,28 @@
       
       alert( str ); // hi
     ```
+
+<hr>
+<br>
+<br>
+
+<h2>Изменение регистра</h2>
+
+- [ ] Методы `toLowerCase()` и `toUpperCase()` меняют регистр символов:
+
+  ```javascript
+    alert( 'Interface'.toUpperCase() ); // INTERFACE
+    alert( 'Interface'.toLowerCase() ); // interface
+  ```
+
+  + Если мы захотим перевести в нижний регистр какой-то конкретный символ:
+     
+    ```javascript
+      alert( 'Interface'[0].toLowerCase() ); // 'i'
+    ```
+
+<hr>
+<br>
+<br>
+
+<h2>Поиск подстроки</h2>
