@@ -134,3 +134,34 @@
 <br>
 
 <h2>Поиск подстроки</h2>
+
+- [ ] Существует несколько способов поиска подстроки.
+
+  <h3>str.indexOf</h3>
+
+  + Он ищет подстроку `substr` в строке `str`, начиная с позиции `pos`, и возвращает позицию, на которой располагается совпадение, либо `-1` при отсутствии совпадений.
+     
+    ```javascript
+      let str = "Widget with id";
+
+      console.log(str.indexOf("Widget")); // 0, потому что подстрока 'Widget' найдена в начале
+      console.log(str.indexOf("widget")); // -1, совпадений нет, поиск чувствителен к регистру
+      
+      console.log(str.indexOf("id")); // 1, подстрока "id" найдена на позиции 1 (..idget with id)
+    ```
+
+  + Необязательный второй аргумент позволяет начать поиск с определённой позиции.
+     
+    ```javascript
+      let str = "Widget with id";
+
+      console.log(str.indexOf("id", 2)); // 12
+    ```
+
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/e0f068fa-4ab5-4d38-b6f1-64916036447b)
+
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/4a8eeab3-d707-4bc8-93b6-73af4eb94d8f)
+
+  <h3>includes, startsWith, endsWith</h3>
+
+  
