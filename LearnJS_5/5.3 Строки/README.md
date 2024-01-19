@@ -184,3 +184,30 @@
       console.log("Widget".startsWith("Wid")); // true, "Wid" — начало "Widget"
       console.log("Widget".endsWith("get")); // true, "get" — окончание "Widget"
     ```
+
+<hr>
+<br>
+<br>
+
+<h2>Получение подстроки</h2>
+
+- [ ] В JavaScript есть 3 метода для получения подстроки: `substring`, `substr` и `slice`.
+
+    <h3>+ str.slice(start [, end])</h3>
+
+  + Возвращает часть строки от `start` до `(не включая) end`.
+
+     ```javascript
+      let str = "Hello world";
+
+      console.log(str.slice(0, 7)); // Hello w (0 - 7, не включая 7(пробел - считается как символ))
+      console.log(str.slice(0, 2)); // He (0 - 2, не включая 2)
+      
+      /*
+        Если второго аргумента нет
+        Получаем всю строку начиная с аргумента `start`
+      */
+      console.log(str.slice(0)); // Hello world
+      console.log(str.slice(4)); // o world
+     ```  
+      
