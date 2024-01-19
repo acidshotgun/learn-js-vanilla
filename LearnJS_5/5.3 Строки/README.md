@@ -266,3 +266,44 @@
   <br>
 
   ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/64b0090a-a7ce-42e8-a2af-92c97667ed74)
+
+<hr>
+<br>
+<br>
+
+<h2>Сравнение строк</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/95a11eec-7934-4474-9af5-9193ce5cec09)
+
+<h3>+ str.codePointAt(pos)</h3>
+
+  + Возвращает код для символа, находящегося на позиции pos:
+
+    ```javascript
+      // одна и та же буква в нижнем и верхнем регистре
+      // будет иметь разные коды
+      alert( "z".codePointAt(0) ); // 122
+      alert( "Z".codePointAt(0) ); // 90
+    ```
+
+<h3>+ String.fromCodePoint(code)</h3>
+
+  + Создаёт символ по его коду `code`
+
+    ```javascript
+      alert( String.fromCodePoint(90) ); // Z
+    ```
+
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/daf031f2-50e0-41a7-9cfb-a300ab900e8f)
+
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/127ec12d-312d-4a9f-9d41-4414686cdc96)
+
+<hr>
+<br>
+<br>
+
+<h2>ИТОГО</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/99beb711-b87b-4d41-a144-43dd4da47f3b)
+
+
