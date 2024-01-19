@@ -209,5 +209,60 @@
       */
       console.log(str.slice(0)); // Hello world
       console.log(str.slice(4)); // o world
+
+       /*
+        Также для start/end можно задавать отрицательные значения. 
+        Это означает, что позиция определена как заданное количество символов с конца строки:
+      */
+      
+      console.log(str.slice(-4, -1)); // orl (до -1(не включая -1))
+      console.log(str.slice(-4)); // orld (от -4 с конца и до конца)
      ```  
       
+    <h3>+ str.substring(start [, end])</h3>
+
+  + Возвращает часть строки между `start и end` (не включая) `end`.
+     
+  + Это — почти то же, что и `slice`, но можно задавать `start` больше `end`.
+    Если `start` больше `end`, то метод `substring` сработает так, как если бы аргументы были `поменяны местами`.
+
+    ```javascript
+      let str = "stringify";
+
+      // для substring эти два примера — одинаковы
+      alert( str.substring(2, 6) ); // "ring"
+      alert( str.substring(6, 2) ); // "ring"
+      
+      // …но не для slice:
+      alert( str.slice(2, 6) ); // "ring" (то же самое)
+      alert( str.slice(6, 2) ); // "" (пустая строка)
+
+      // Отрицательные зн-я интерпретируются как 0
+      let str = "Hello world";
+    
+      console.log(str.substring(-2, 5)); // Hello (-2 == 0)
+    ```
+
+    <h3>+ str.substr(start [, length])</h3>
+
+  + Возвращает часть строки от `start` длины `length`.
+
+  + В противоположность предыдущим методам, этот позволяет указать `длину вместо конечной позиции`:
+     
+    ```javascript
+      let str = "Hello world";
+
+      console.log(str.substr(2, 7)); // llo wor (со 2 на длину 7)
+      
+      /*
+        Значение первого аргумента может быть отрицательным, тогда позиция определяется с конца:
+      */
+      
+      console.log(str.substr(-5, 2)); // wo (-5 символ и длина 2)
+    ```
+
+  + Этот метод находится в Annex B спецификации языка. Это означает, что его должны поддерживать только браузерные движки JavaScript, и использовать его не рекомендуется. Но на практике он поддерживается везде.
+     
+  <br>
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/64b0090a-a7ce-42e8-a2af-92c97667ed74)
