@@ -61,6 +61,21 @@
 
     ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/dec333ca-4e64-4fc6-8f3d-c797ca920e65)
 
+    + не перезаписывает id а создает уникальный символ
+
+    ```javascript
+        let obj = {
+            name: "Bob",
+            id: "1234"
+        }
+        
+        let id = Symbol("id");
+        
+        obj[id] = "id_12345566"
+        
+        console.log(obj) // { name: 'Bob', id: '1234', [Symbol(id)]: 'id_12345566' }
+    ```
+
 <br>
 <br>
 <br>
