@@ -65,8 +65,6 @@
   <h3>+ slice</h3>
   
   - [ ] Возвращает новый массив, в который копирует все элементы с индекса `start` до `end` (не включая end). start и end могут быть отрицательными, в этом случае отсчёт позиции будет вестись с конца массива.
-  
-  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/8ec746dd-e0bc-4817-a069-2296e894442b)
 
   <br>
 
@@ -77,10 +75,18 @@
     const arrayCopy = array.slice(1, 3); // Копируем, начиная с 1-элемб до 3 (не включая 3)
     
     console.log(arrayCopy); // [ 'apple', 'orange' ]
-
   ```
 
+  + Можно вызвать `slice` без аргументов: `arr.slice() создаёт копию arr`. Это часто используют, чтобы создать копию массива для дальнейших преобразований, которые не должны менять исходный массив.
 
+  ```javascript
+    // Копирование
+    const array = ["banana", "apple", "orange", "pineapple"];
+    
+    const arrayCopy = array.slice(); // Без аргументов - полное копирование
+    
+    console.log(arrayCopy); // [ 'banana', 'apple', 'orange', 'pineapple' ]
+  ```
   
 
   
