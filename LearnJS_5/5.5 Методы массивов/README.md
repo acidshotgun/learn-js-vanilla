@@ -176,3 +176,90 @@
 <br>
 
 <h2>Поиск в массиве</h2>
+
+<br>
+
+  <h3>+ indexOf/lastIndexOf и includes</h3>
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/0632d98b-1650-47e1-8246-63448a9209f7)
+
+  ```javascript
+    let array = ["Бильбо", "Гэндальф", "Назгул", null, false, 556];
+
+    // Поиск индекса элемента
+    console.log(array.indexOf("Гэндальф")); // 1 (1-я позиция)
+    console.log(array.indexOf(false)); // 4 (4-я позиция)
+    
+    console.log(array.indexOf(null)); // 3 (3-я позиция)
+    console.log(array.lastIndexOf(null)); // 3 (справа налево, но возвращает ориг. индекс элемента)
+    
+    // Есть или нет элемент
+    console.log(array.includes(1)); // fasle (1 - нет)
+    console.log(array.includes("Гэндальф")); // true (Гэндальф - есть)
+  ```
+
+  <br>
+
+  <h3>+ find и findIndex/findLastIndex</h3>
+
+  - [x] `array.find()` - находит элемент, соответствующий опр. условию.
+  - [x] `findIndex()/findLastIndex()` - находит элемент и возвращает его индекс
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/388e2ab3-4f46-43f7-b862-08d9e72dfff2)
+
+  <br>
+
+  ```javascript
+    let users = [
+      { id: "id_1e34a", name: "Вася" },
+      { id: "id_4512b", name: "Петя" },
+      { id: "id_ab24t", name: "Маша" },
+    ];
+    
+    // Находим пользователя по id
+    let foundedUser = users.find((item) => item.id == "id_4512b"); // Ищем пользователя с опр. id
+    
+    // Находим индекс пользователя по id
+    let foundedUserIndex = users.findIndex((item) => item.id == "id_4512b"); // Ищем индекс пользователя с опр. id
+    
+    console.log(foundedUser); // { id: 'id_4512b', name: 'Петя' }
+    console.log(foundedUserIndex); // 1
+  ```
+
+  <br>
+
+  <h3>+ filter</h3>
+
+  - [ ] Метод find ищет один (первый) элемент, который заставит функцию вернуть true.
+
+  - [x] Если найденных элементов может быть много, можно использовать `arr.filter(fn)`.
+
+  - [x] Синтаксис схож с `find`, но `filter` возвращает `массив из всех подходящих элементов`:
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/b5540482-2f97-44f7-aa1f-662368497e0a)
+
+  <br>
+
+  ```javascript
+    let users = [
+      { name: "Вася", age: 24 },
+      { name: "Петя", age: 12 },
+      { name: "Маша", age: 19 },
+      { name: "Елена", age: 22 },
+      { name: "Екатерина", age: 21 },
+    ];
+    
+    /*
+      1) Ищем пользователей, чей возраст >= 20
+      2) Массив найденых пользователей помещается в переменную
+    */
+    let foundedUser = users.filter((item) => item.age >= 20); //
+    
+    console.log(foundedUser); /*
+                                [
+                                  { name: 'Вася', age: 24 },
+                                  { name: 'Елена', age: 22 },
+                                  { name: 'Екатерина', age: 21 }
+                                ]
+                              */
+  ```
