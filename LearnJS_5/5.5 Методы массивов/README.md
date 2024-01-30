@@ -125,17 +125,28 @@
     
     console.log(arr.concat(arrayLike)); // [ 1, 2, { '0': 'что-то', length: 1 } ]
 
+
   // Symbol.isConcatSpreadable
-    let arr = [1, 2];
-    
-    let arrayLike = {
-      0: "что-то",
-      1: "ещё",
-      [Symbol.isConcatSpreadable]: true,
-      length: 2,
-    };
-    
-    console.log(arr.concat(arrayLike)); // 1,2,что-то,ещё
+
+  /*
+      1) Но ключи должны быть в кач-ве порядкового числа
+      2) Необходимо указать длину массива в св-ве length
+      3) Пробелы между ключами образуют пустые символы, тк длина
+      4) Если длина массива больше содержимого = куча пустых символов
+    */
+  let arr = [1, 2];
+  
+  let arrayLike = {
+    10: "Десятая позиция", // Встанет на 10 позицию
+    name: "sasha", // Проигнорируется
+    0: "что-то",
+    1: "ещё",
+    [Symbol.isConcatSpreadable]: true,
+    length: 110, // Указание длины массива
+  };
+  
+  console.log(arr.concat(arrayLike)); // [ 1, 2, 'что-то', 'ещё', <8 empty items>, 'Десятая позиция', <99 empty items> ]
+
   ```
 
 
