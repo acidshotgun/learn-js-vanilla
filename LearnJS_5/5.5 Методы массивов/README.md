@@ -149,5 +149,30 @@
 
   ```
 
+<hr>
+<br>
+<br>
 
-    
+<h2>Перебор: forEach</h2>
+
+- [ ] Метод `arr.forEach` позволяет запускать функцию для каждого элемента массива.
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/2fdbebf8-106d-477d-848b-6120b4931faa)
+
+<br>
+
+```javascript
+  let array = ["Бильбо", "Гэндальф", "Назгул"];
+  
+  // Вызов для каждого элемента
+  array.forEach((item, index, array) => {
+    console.log(`У ${item} индекс ${index} в ${array}`);
+  });
+```
+
+- [x] Результат функции (если она что-то возвращает) отбрасывается и игнорируется.
+
+<hr>
+<br>
+<br>
+
+<h2>Поиск в массиве</h2>
