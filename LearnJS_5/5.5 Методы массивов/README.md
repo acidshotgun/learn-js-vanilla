@@ -15,8 +15,6 @@
     ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/797adf55-2e0c-40de-bf6a-c09ef9eb7428)
 
     <br>
-
-    - [ ] **Удаление**:
        
       ```javascript
         // Удаление
@@ -58,3 +56,32 @@
         alert( arr ); // "Я", "изучаю", "сложный", "язык", "JavaScript"
       ```
 
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/6a2a012b-f2b5-486f-acdb-7acb4739c119)
+
+<br>
+  
+  <h3>+ slice</h3>
+  
+  - [ ] Возвращает новый массив, в который копирует все элементы с индекса `start` до `end` (не включая end). start и end могут быть отрицательными, в этом случае отсчёт позиции будет вестись с конца массива.
+  
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/8ec746dd-e0bc-4817-a069-2296e894442b)
+
+  <br>
+
+  ```javascript
+    // Копирование
+    const array = ["banana", "apple", "orange", "pineapple"];
+    
+    const arrayCopy = array.slice(1, 3); // Копируем, начиная с 1-элемб до 3 (не включая 3)
+    
+    console.log(arrayCopy); // [ 'apple', 'orange' ]
+
+  ```
+
+
+  
+
+  
+  
