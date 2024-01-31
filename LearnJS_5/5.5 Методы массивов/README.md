@@ -297,6 +297,8 @@
 
   - [x] Он также возвращает отсортированный массив, но обычно возвращаемое значение игнорируется, так как `изменяется сам arr`.
 
+  - [ ] `**По умолчанию элементы сортируются как строки.**` 
+
   ```javascript
     const array = [90, 56, 2, 6, 4, 7, 34];
 
@@ -358,3 +360,55 @@
       console.log(sortedArray); 
       /*[6, { name: 'Debil', age: 15, toString: [Function: toString] }, 34, 56, 90]*/
     ``` 
+
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/dd18e11d-cb3b-420b-8865-9ee30176d43e)
+
+<br>
+
+  <h3>+ reverse</h3>
+
+  - [x] Метод `arr.reverse` меняет порядок элементов в arr на обратный.
+  - [x] Он также возвращает `массив arr` с изменённым порядком элементов.
+
+  ```javascript
+    let arr = [1, 2, 3, 4, 5];
+    arr.reverse();
+    
+    alert( arr ); // 5,4,3,2,1
+  ```
+
+<br>
+
+  <h3>+ split и join</h3>
+
+  - [x] Метод `str.split(delim)` - разбивает строку на массив по заданному разделителю `delim`.
+
+  <br>
+
+  ```javascript
+    let array = "Привет, я пришел, что дальше?";
+    
+    let newArr = array.split(", "); // Разделите - точка и пробел
+    
+    console.log(newArr); // [ 'Привет', 'я пришел', 'что дальше?' ]
+
+
+    // Без аргументов
+    let newArrTwo = array.split(""); // Пустой аргумент просто разобъет на массив букв
+
+    console.log(newArrTwo); // ['П', 'р', 'и', 'в', 'е', 'т', ',', ' ', 'я', ........]
+  ```
+
+<br>
+
+  - [x] Метод `str.join(glue)` - cоздаёт строку из элементов arr, вставляя `glue` между ними.
+
+  ```javascript
+    let array = ["Вова", "Петя", "Дебил"];
+
+    let newArray = array.join("==="); // Разделитель между элементами
+    
+    console.log(newArray); // Вова===Петя===Дебил
+  ```
