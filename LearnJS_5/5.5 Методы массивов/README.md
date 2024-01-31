@@ -475,3 +475,4 @@
 
   ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/cd30172d-4733-4920-861d-9a0f4c0f7390)
 
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/03849bca-69bb-4381-b2b3-1a37b8492aef)
