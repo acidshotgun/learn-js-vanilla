@@ -453,5 +453,25 @@
 <br>
 <br>
 
-<h2>Большинство методов поддерживают «thisArg»</h2>
+<h2>ИТОГОГ / ШПОРА</h2>
+
+- [ ] Шпаргалка по методам массива:
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/31b7956f-9b3b-4b33-829e-4e1cc8bec98f)
+
+  <br>
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/87e4ca9d-072a-4573-913f-bde3e8b6d77f)
+
+  <br>
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/119197e4-f373-4bd6-8329-174a30ffd295)
+
+  <br>
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/310d81a1-6be0-4b21-a32e-d0a7784d3638)
+
+  <br>
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/cd30172d-4733-4920-861d-9a0f4c0f7390)
 
