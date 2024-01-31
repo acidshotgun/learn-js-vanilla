@@ -329,3 +329,32 @@
   ```
 
   + Чтобы использовать наш собственный порядок сортировки, нам нужно предоставить функцию в качестве аргумента `arr.sort()`.
+
+  + [x] Сортировка массива, в котором есть объекты - подставит объект в конец, если приведение к типу неявное.
+  + [x] Используя методы `toString() / valueOf()` или `[Symbol.toPrimitive]` - приведет к примитиву и дальнейшая сортировка будет как с примитивами.
+
+    ```javascript
+      const object = {
+        name: "Debil",
+        age: 15,
+      
+        toString() {
+          console.log("string");
+          return this.age;
+        },
+      
+        valueOf() {
+          console.log("default");
+          return this.age;
+        },
+      };
+      
+      const array = [90, 56, 6, object, 34];
+      
+      const sortedArray = array.sort((a, b) => {
+        return a - b;
+      });
+      
+      console.log(sortedArray); 
+      /*[6, { name: 'Debil', age: 15, toString: [Function: toString] }, 34, 56, 90]*/
+    ``` 
