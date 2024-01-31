@@ -412,3 +412,46 @@
     
     console.log(newArray); // Вова===Петя===Дебил
   ```
+
+<br>
+
+  <h3>+ reduce/reduceRight</h3>
+
+  + Когда нам нужно перебрать массив – мы можем использовать `forEach`, `for` или `for..of`.
+
+  + Когда нам нужно перебрать массив и вернуть данные для каждого элемента – мы можем использовать `map`.
+  
+  - [x] Методы `arr.reduce` и `arr.reduceRight` похожи на методы выше, но они немного сложнее. Они используются для вычисления единого значения на основе всего массива.
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/9edf9758-bb66-4361-8544-c9888dcdf76c)
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/146c9761-a926-4294-a5ad-fcda69c6f36d)
+
+  <br>
+
+  ```javascript
+    let arr = [1, 2, 3, 4, 5];
+
+    let result = arr.reduce((sum, current) => sum + current, 0);
+    
+    alert(result); // 15
+  ```
+
+<br>
+
+  + Если массив пуст == ошибка
+
+<hr>
+<br>
+<br>
+
+<h2>Array.isArray</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/eac9ab83-871a-4fbb-9994-a6072dc5f438)
+
+<hr>
+<br>
+<br>
+
+<h2>Большинство методов поддерживают «thisArg»</h2>
+
