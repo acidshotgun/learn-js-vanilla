@@ -1,3 +1,7 @@
+<h2>EVENT LOOP</h2>
+
+[ДИАГРАММА](https://app.diagrams.net/#G1875w0lyQMRABzLuQx39ppm7ouR_G_GxP)
+
 ```javascript
 // EVENT LOOP TASKS
 console.log(1);
