@@ -56,4 +56,3 @@ getUsersData();
 getUsersData2();
 
 console.log("старт");
-
