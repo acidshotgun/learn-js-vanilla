@@ -1,6 +1,6 @@
 <h2>EVENT LOOP</h2>
 
-[ДИАГРАММА](https://app.diagrams.net/#G1875w0lyQMRABzLuQx39ppm7ouR_G_GxP)
+[ШПОРА](https://habr.com/ru/articles/681882/)
 
 # Event loop
 
