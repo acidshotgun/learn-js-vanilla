@@ -1,6 +1,6 @@
 <h2>EVENT LOOP</h2>
 
-[ШПОРА](https://habr.com/ru/articles/681882/)
+[ШПОРА С ТАБЛИЧКОЙ](https://habr.com/ru/articles/681882/)
 
 # Event loop
 
