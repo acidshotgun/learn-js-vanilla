@@ -32,11 +32,6 @@
   + Результат вызова `next()` должен иметь вид `{done: Boolean, value: any}`, где `done=true` означает, что цикл завершён, в противном случае `value` содержит очередное значение.
      
 ```javascript
-  let range = {
-    from: 1,
-    to: 5,
-}
-
 let range = {
   from: 1,
   to: 5
