@@ -63,3 +63,162 @@
   console.log(map.size); // 0
   console.log(map); // Map(0) {} (пустой Map)
 ```
+
+- [x] При создании `Map` мы можем указать массив (или другой итерируемый объект) с парами ключ-значение для инициализации
+
+```javascript
+  let recipeMap = new Map([
+    ["огурец", 500],
+    ["помидор", 350],
+    ["лук", 50],
+  ]);
+  
+  console.log(recipeMap); // Map(3) { 'огурец' => 500, 'помидор' => 350, 'лук' => 50 }
+```
+
+<br>
+
+- [ ] В отличии от `объектов`, `Map` - не приводит ключи к строкам. В кач-ве ключей можно использовать любые типы данных.
+
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/53e1a2eb-4b94-4f22-b191-c8e6ed7d07db)
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/0a6fc34a-ae47-4762-ae91-2fdac2b92392)
+
+<hr>
+<br>
+<br>
+
+<h2>Перебор Map</h2>
+
+- [ ] Для перебора коллекции `Map` есть 3 метода:
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/13d28d2e-060b-4c20-a042-2c41ad5e06c1)
+
+```javascript
+  let recipeMap = new Map([
+    ["огурец", 500],
+    ["помидор", 350],
+    ["лук", 50],
+  ]);
+  
+  /*
+    map.keys() – возвращает итерируемый объект по ключам,
+  */
+  console.log(recipeMap.keys()); // [Map Iterator] { 'огурец', 'помидор', 'лук' }
+  
+  // Важно, что сначала keys() возвращает итерируемый объект (прошлая глава)
+  // и затем он перебирается
+  for (let key of recipeMap.keys()) {
+    console.log(key); // огурец помидор лук
+  }
+  
+  /*
+    map.values() – возвращает итерируемый объект по значениям,
+  */
+  console.log(recipeMap.values()); // [Map Iterator] { 500, 350, 50 }
+  
+  for (let key of recipeMap.values()) {
+    console.log(key); // 500 350 50
+  }
+  
+  /*
+    map.entries() – возвращает итерируемый объект по парам вида [ключ, значение], этот вариант используется по умолчанию в for..of.
+  */
+  console.log(recipeMap.entries()); // [Map Entries] { [ 'огурец', 500 ], [ 'помидор', 350 ], [ 'лук', 50 ] }
+  
+  for (let key of recipeMap) {
+    // то же самое, что и recipeMap.entries()
+    console.log(key);
+  }
+```
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/3016e155-0018-4dbc-a855-199d1ccdab4b)
+
+<hr>
+<br>
+<br>
+
+<h2>Object.entries: Map из Object</h2>
+
+- [ ] При создании `Map` мы можем указать массив (или другой итерируемый объект) с парами ключ-значение для инициализации,
+
+```javascript
+  // массив пар [ключ, значение]
+  let map = new Map([
+    ['1',  'str1'],
+    [1,    'num1'],
+    [true, 'bool1']
+  ]);
+  
+  alert( map.get('1') ); // str1
+```
+
+<br>
+
+- [ ] Если у нас уже есть обычный `объект`, и мы хотели бы создать `Map` из него, то поможет встроенный метод `Object.entries(obj)`, который `получает объект и возвращает массив пар ключ-значение` для него, как раз в этом формате.
+
+```javascript
+  // 1) Простой объект
+  let obj = {
+    name: "John",
+    age: 30,
+  };
+  /*
+    2) Делайем из объекта Map
+    при помощи Object.entries(obj)
+    который из объекта делает массив пар [ключ, значение]
+    А из массива пак ключ-значение уже делаем Map
+  */
+  console.log(Object.entries(obj)); // [ [ 'name', 'John' ], [ 'age', 30 ] ]
+  
+  let map = new Map(Object.entries(obj));
+  
+  // 3) Получаем с-во по ключу
+  console.log(map.get("name")); // John
+```
+
+<hr>
+<br>
+<br>
+
+<h2>Object.fromEntries: Object из Map</h2>
+
+- [ ] `Object.fromEntries` - наоборот из массива пар `[ключ, значение]` делает объект.
+- [ ] Соотв. мы из `Map` делаем массив пар `[ключ, значение]` и из него далее делаем объект.
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/acf42146-8428-4e0b-8230-74db24106c2c)
+
++ Мы можем использовать `Object.fromEntries`, чтобы получить обычный объект из Map. ()
+
+```javascript
+  // 1) Есть массив пар ключ / значение
+  let array = [
+    [true, "boolean"],
+    ["string", "строка"],
+    [undefined, 55],
+  ];
+  
+  // 2) Из него делаем Map
+  let map = new Map(array);
+  
+  /* 3) Из Map делаем объект
+    Предваритольно сделав из него массив пар ключ / значение обратно при помощи Object.fromEntries();
+    Получим обычный объект с строками в кач-ве ключей
+  */
+  let obj = Object.fromEntries(map);
+  console.log(obj); // { true: 'boolean', string: 'строка', undefined: 55 }
+  
+  // Можем перебрать
+  for (let key in obj) {
+    console.log(`${key}: ${obj[key]} `);
+  }
+  /*
+    true: boolean 
+    string: строка 
+    undefined: 55 
+  */
+```
+
+
