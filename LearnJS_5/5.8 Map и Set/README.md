@@ -90,6 +90,23 @@
 <br>
 <br>
 
+<h2>Ключи Map - УНИКАЛЬНЫ</h2>
+
+- [x] Ключи `Map` УНИКАЛЬНЫ. Если добавлять один и тот же ключ, то он перезаписывается:
+
+```javascript
+  let newMap = new Map();
+
+  newMap.set("name", "sasha");
+  newMap.set("name", "vova");
+  
+  console.log(newMap); // Map(1) { 'name' => 'vova' }
+```
+
+<hr>
+<br>
+<br>
+
 <h2>Перебор Map</h2>
 
 - [ ] Для перебора коллекции `Map` есть 3 метода:
