@@ -299,6 +299,34 @@
   console.log(set); // Set(3) { [ 'name', 'sasha' ], [ 'age', 15 ], [ 'isAdmin', true ] }
 ```
 
+<br>
+<br>
+
+<h3>Задачка на уникальные зн-я</h3>
+
+  ```javascript
+    // 1) Фильтрация уникальных элементов массива
+
+    function unique(arr) {
+      // return [...new Set(arr)]; // деструктуризация
+      return Array.from(new Set(arr)); // или сделать массив из сета
+    }
+    
+    let values = [
+      "Hare",
+      "Krishna",
+      "Hare",
+      "Krishna",
+      "Krishna",
+      "Krishna",
+      "Hare",
+      "Hare",
+      ":-O",
+    ];
+    
+    console.log(unique(values)); // Hare,Krishna,:-O
+  ```
+
 <hr>
 <br>
 <br>
