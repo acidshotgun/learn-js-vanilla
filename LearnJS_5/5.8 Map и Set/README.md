@@ -221,4 +221,109 @@
   */
 ```
 
+<hr>
+<br>
+<br>
+
+<h2>Set</h2>
+
+- [ ] `Объект Set` – это особый вид коллекции: «множество» значений (без ключей), где каждое значение может появляться только один раз.
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/be616eae-3270-4ba0-9fc4-0011e68ec027)
+
+```javascript
+  let array = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
+
+  let setFromArray = new Set(array);
+  
+  console.log(setFromArray); // Set(5) { 1, 2, 3, 4, 5 }
+```
+
+```javascript
+  // 1) Есть псевдомассив
+  let obj = {
+    0: "hello",
+    1: "world",
+    length: 2,
+  };
+  
+  /*
+    2) Из всевдомассива делаем Set
+    Предварительно сделав псевдомассив полноценным массивом Array.from()
+  */
+  let set = new Set(Array.from(obj));
+  
+  // Создадим объект и ссылку на него
+  let testObj = { name: "Sasha" };
+  let testObjCopy = testObj;
+  
+  // 3) Добавим
+  set.add(testObj);
+  set.add(testObjCopy);
+  
+  // Сохранит один объект, так как все зн-я должны быть уникальны.
+  console.log(set); // Set(3) { 'hello', 'world', { name: 'Sasha' } }
+```
+
+```javascript
+  // 1) Объект
+  let obj = {
+    name: "sasha",
+    age: 15,
+    isAdmin: true,
+  };
+  
+  /*
+    2) Сделали массив массивов ключ/зн-е Object.entries()
+    и из него сделали Set
+  */
+  let set = new Set(Object.entries(obj));
+  
+  console.log(set); // Set(3) { [ 'name', 'sasha' ], [ 'age', 15 ], [ 'isAdmin', true ] }
+```
+
+<hr>
+<br>
+<br>
+
+<h2>Перебор объекта Set</h2>
+
+- [ ] Мы можем перебрать содержимое объекта `set` как с помощью метода `for..of`, так и используя `forEach`:
+
+```javascript
+  let obj = {
+    name: "sasha",
+    age: 15,
+    isAdmin: true,
+  };
+  
+  let set = new Set(Object.entries(obj));
+  
+  // перебор for of
+  for (let key of set) {
+    console.log(key); // [ 'name', 'sasha' ] [ 'age', 15 ] [ 'isAdmin', true ]
+  }
+  
+  // forEach - то же самое
+  set.forEach((item) => {
+    console.log(item); // [ 'name', 'sasha' ] [ 'age', 15 ] [ 'isAdmin', true ]
+  });
+```
+
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/fd47669b-3b0a-44c6-addc-493f033f15e8)
+
+<hr>
+<br>
+<br>
+
+<h2>Итого</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/fd03b9bd-950b-447f-90ee-fdd127597138)
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/6991d0e9-61e2-41e1-a130-1a187a24e7da)
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/1d4ee818-60ae-4267-9c6a-d01473048cf6)
+
 
