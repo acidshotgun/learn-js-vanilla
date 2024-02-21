@@ -1,0 +1,224 @@
+# Map и Set
+
+<h2>Map</h2>
+
+- [ ] `Map` – это коллекция ключ/значение, как и `Object`. Но основное отличие в том, что `Map` позволяет использовать ключи любого типа.
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/f91a2f92-a75e-437b-883c-3401bd313996)
+
+<br>
+
+```javascript
+  let map = new Map();
+
+  /*
+    Поскольку обращение к объектам происходит по ссылке,
+    чтобы получать св-ва, ключу которых - это объект / ф-я
+    необходимо создать ссылки на эти "объекты"
+    и в Map помещать ссылку
+  */
+  let obj = { name: "sasha" };
+  let func = () => "Hello world";
+  
+  // set'ом можно помещать св-ва в Map по цепочке.
+  map
+    .set("string", "some value")
+    .set(true, "boolean")
+    .set(obj, "name") // в кач-ве ключа (объект) - будет ссылко
+    .set({ name: "olivia" }, "name") // неверный вариант (get выдаст undefined)
+    .set(func, "func"); // аналогично с ф-ей
+  
+  /*
+    Получение св-в get()
+  */
+  console.log(map.get(true)); // "boolean" (нашли по ключу)
+  console.log(map.get("string")); // "some value" (нашли по ключу)
+  
+  console.log(map.get(obj)); // name
+  console.log(map.get({ name: "olivia" })); // undefined (тк тут в получении ищем объект не по ссылке, а другой (как бы))
+  console.log(map.get(func)); // func
+  
+  /*
+    Поиск св-в has()
+  */
+  console.log(map.has(obj)); // true
+  console.log(map.has(true)); // true
+  console.log(map.has("такого ключа нет")); // false
+  
+  /*
+    Удаление пары ключ/значение delete()
+  */
+  map.delete(obj); // удаляем св-во
+  console.log(map.has(obj)); // false (удалён)
+  
+  /*
+    Кол-во элементов size()
+  */
+  console.log(map.size); // 4
+  
+  /*
+    Очистить всю коллекцию clear()
+  */
+  map.clear();
+  console.log(map.size); // 0
+  console.log(map); // Map(0) {} (пустой Map)
+```
+
+- [x] При создании `Map` мы можем указать массив (или другой итерируемый объект) с парами ключ-значение для инициализации
+
+```javascript
+  let recipeMap = new Map([
+    ["огурец", 500],
+    ["помидор", 350],
+    ["лук", 50],
+  ]);
+  
+  console.log(recipeMap); // Map(3) { 'огурец' => 500, 'помидор' => 350, 'лук' => 50 }
+```
+
+<br>
+
+- [ ] В отличии от `объектов`, `Map` - не приводит ключи к строкам. В кач-ве ключей можно использовать любые типы данных.
+
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/53e1a2eb-4b94-4f22-b191-c8e6ed7d07db)
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/0a6fc34a-ae47-4762-ae91-2fdac2b92392)
+
+<hr>
+<br>
+<br>
+
+<h2>Перебор Map</h2>
+
+- [ ] Для перебора коллекции `Map` есть 3 метода:
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/13d28d2e-060b-4c20-a042-2c41ad5e06c1)
+
+```javascript
+  let recipeMap = new Map([
+    ["огурец", 500],
+    ["помидор", 350],
+    ["лук", 50],
+  ]);
+  
+  /*
+    map.keys() – возвращает итерируемый объект по ключам,
+  */
+  console.log(recipeMap.keys()); // [Map Iterator] { 'огурец', 'помидор', 'лук' }
+  
+  // Важно, что сначала keys() возвращает итерируемый объект (прошлая глава)
+  // и затем он перебирается
+  for (let key of recipeMap.keys()) {
+    console.log(key); // огурец помидор лук
+  }
+  
+  /*
+    map.values() – возвращает итерируемый объект по значениям,
+  */
+  console.log(recipeMap.values()); // [Map Iterator] { 500, 350, 50 }
+  
+  for (let key of recipeMap.values()) {
+    console.log(key); // 500 350 50
+  }
+  
+  /*
+    map.entries() – возвращает итерируемый объект по парам вида [ключ, значение], этот вариант используется по умолчанию в for..of.
+  */
+  console.log(recipeMap.entries()); // [Map Entries] { [ 'огурец', 500 ], [ 'помидор', 350 ], [ 'лук', 50 ] }
+  
+  for (let key of recipeMap) {
+    // то же самое, что и recipeMap.entries()
+    console.log(key);
+  }
+```
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/3016e155-0018-4dbc-a855-199d1ccdab4b)
+
+<hr>
+<br>
+<br>
+
+<h2>Object.entries: Map из Object</h2>
+
+- [ ] При создании `Map` мы можем указать массив (или другой итерируемый объект) с парами ключ-значение для инициализации,
+
+```javascript
+  // массив пар [ключ, значение]
+  let map = new Map([
+    ['1',  'str1'],
+    [1,    'num1'],
+    [true, 'bool1']
+  ]);
+  
+  alert( map.get('1') ); // str1
+```
+
+<br>
+
+- [ ] Если у нас уже есть обычный `объект`, и мы хотели бы создать `Map` из него, то поможет встроенный метод `Object.entries(obj)`, который `получает объект и возвращает массив пар ключ-значение` для него, как раз в этом формате.
+
+```javascript
+  // 1) Простой объект
+  let obj = {
+    name: "John",
+    age: 30,
+  };
+  /*
+    2) Делайем из объекта Map
+    при помощи Object.entries(obj)
+    который из объекта делает массив пар [ключ, значение]
+    А из массива пак ключ-значение уже делаем Map
+  */
+  console.log(Object.entries(obj)); // [ [ 'name', 'John' ], [ 'age', 30 ] ]
+  
+  let map = new Map(Object.entries(obj));
+  
+  // 3) Получаем с-во по ключу
+  console.log(map.get("name")); // John
+```
+
+<hr>
+<br>
+<br>
+
+<h2>Object.fromEntries: Object из Map</h2>
+
+- [ ] `Object.fromEntries` - наоборот из массива пар `[ключ, значение]` делает объект.
+- [ ] Соотв. мы из `Map` делаем массив пар `[ключ, значение]` и из него далее делаем объект.
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/acf42146-8428-4e0b-8230-74db24106c2c)
+
++ Мы можем использовать `Object.fromEntries`, чтобы получить обычный объект из Map. ()
+
+```javascript
+  // 1) Есть массив пар ключ / значение
+  let array = [
+    [true, "boolean"],
+    ["string", "строка"],
+    [undefined, 55],
+  ];
+  
+  // 2) Из него делаем Map
+  let map = new Map(array);
+  
+  /* 3) Из Map делаем объект
+    Предваритольно сделав из него массив пар ключ / значение обратно при помощи Object.fromEntries();
+    Получим обычный объект с строками в кач-ве ключей
+  */
+  let obj = Object.fromEntries(map);
+  console.log(obj); // { true: 'boolean', string: 'строка', undefined: 55 }
+  
+  // Можем перебрать
+  for (let key in obj) {
+    console.log(`${key}: ${obj[key]} `);
+  }
+  /*
+    true: boolean 
+    string: строка 
+    undefined: 55 
+  */
+```
+
+
