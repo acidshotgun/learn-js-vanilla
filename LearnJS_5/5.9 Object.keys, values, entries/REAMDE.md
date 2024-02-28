@@ -74,6 +74,9 @@
     // Отфильтровали цены
     prices = Object.fromEntries(
       Object.entries(prices).filter((item) => item[1] <= 100)
+
+      // Или можно с деструктуризацией массива, если нужно только одно св-во (_)
+      Object.entries(prices1).filter(([_, price]) => price <= 100)
     );
     
     console.log(prices); // { banana: 100, apple: 70, orange: 56 }
