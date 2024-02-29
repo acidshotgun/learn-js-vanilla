@@ -102,6 +102,31 @@
 <br>
 
 - [x] `Вложенные объекты` поддерживаются и конвертируются автоматически.
+- [x] Как раз это может помоч сделать глубокую копию объекта
+
+  ```javascript
+    const obj = {
+      name: "sasha",
+      age: 15,
+      isAdmin: true,
+      friends: {
+        name: "pedil",
+        age: "16",
+        cars: {
+          car1: "bmw",
+          car2: "mercedes",
+        },
+      },
+    };
+    
+    // Копируем
+    const objCopy = JSON.parse(JSON.stringify(obj));
+    // Изменяем св-во (уже будет не ссылка)
+    objCopy.friends.name = "AIFHJIJHSFAHSFJH";
+    
+    console.log(obj.friends.name); // pedil
+    console.log(objCopy.friends.name); // AIFHJIJHSFAHSFJH
+  ```
 
 <hr>
 <br>
@@ -193,3 +218,28 @@
 
 <h2>Использование reviver</h2>
 
+- [ ] Обычно `reviver` используется для парсинга `Date`, поскольку в `JSON` все хранится в формате строк, то и парсится будет как строки. Но та же `Date` - это не строка и вызов методов у этой даты не будет возможным.
+
+```javascript
+  let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+
+  let meetup = JSON.parse(str);
+  
+  alert( meetup.date.getDate() ); // Ошибка!
+```
+
+<br>
+
+- [x] Для измежания этой ошибки в кач-ве аргумента в `JSON.parse()` передается фу-я проверки.
+- [x] Так же работает и для вложенных объектов.
+
+```javascript
+  let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+
+  let meetup = JSON.parse(str, function(key, value) {
+    if (key == 'date') return new Date(value);
+    return value;
+  });
+  
+  alert( meetup.date.getDate() ); // 30 - теперь работает!
+```
