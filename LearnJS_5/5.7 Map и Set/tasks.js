@@ -59,11 +59,15 @@ keys.push("more");
 
 console.log(keys);
 
-//
+/////
 
-let newMap = new Map();
+let obj = {
+  0: "hello",
+  1: "world",
+  2: "hello",
+  length: 3,
+};
 
-newMap.set("name", "sasha");
-newMap.set("name", "vova");
+let set = new Set(Array.from(obj));
 
-console.log(newMap); // Map(1) { 'name' => 'vova' }
+console.log(set);
