@@ -166,3 +166,11 @@
     let arrayFromSet = [...set]; // Можно развернуть set в новый массив
     console.log(arrayFromSet); // [ 1, 2, 3, 4, 'hello' ]
   ```
+
+<hr>
+<br>
+<br>
+
+<h2>ИТОГО</h2>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/b87d8c19-a708-4459-b0cf-b3302368e52b)
