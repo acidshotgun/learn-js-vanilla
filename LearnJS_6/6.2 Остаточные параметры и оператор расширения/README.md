@@ -109,8 +109,8 @@
       В этом примере сначала собрали все числа в массива (остаточные параметры)
       Затем развернули этот массив в ф-ю Math.max() и нашли намбольшее
     */
-    function findMaxValue(...numbers) {
-      return Math.max(...numbers);
+    function findMaxValue(...numbers) { // Rest - тут получится массив
+      return Math.max(...numbers); // Spread - тут массив развернутся
     }
     
     console.log(findMaxValue(40, 300, 60, 70, 1, 111, 222, 333, 777));
