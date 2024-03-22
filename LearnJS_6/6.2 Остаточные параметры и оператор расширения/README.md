@@ -132,7 +132,7 @@
 
 <br>
 
-  <h3>+ Объединение объектов:</h3>
+  <h3>+ Объединение + копирование объектов:</h3>
 
   + Если ключи будут одинаковы - они перезапишутся.
 
@@ -150,6 +150,28 @@
     let object3 = { ...obj, ...obj2 };
     
     console.log(object3); // { name: 'sasha', age: 15, nickName: 'aboba', isAdmin: true }
+  ```
+
+  <br>
+
+  + Копирование по классике будет поверхностное (вложенные структуры остануться ссылками).
+  
+  ```javascript
+    let obj = {
+      name: "sasha",
+      age: 15,
+      friends: [
+        { name: "tom", age: 15 },
+        { name: "dora", age: 15 },
+      ],
+    };
+    
+    let obj2 = { ...obj }; // Копируем объект, развернув новый
+    obj2.friends[0].name = "CHANGED NAME";
+    
+    // name меняется у обоих объектов
+    console.log(obj.friends[0].name); // CHANGED NAME
+    console.log(obj2.friends[0].name); // CHANGED NAME
   ```
 
 <br>
