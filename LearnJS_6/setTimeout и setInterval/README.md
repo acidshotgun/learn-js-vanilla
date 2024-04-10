@@ -96,3 +96,61 @@
 <br>
 
 <h2>Вложенный setTimeout</h2>
+
+- [ ] Еще один способ запускать что-то регулярно, помимо `setInterval` - это вложенный `setTimeout`.
+
+```javascript
+/** вместо:
+  let timerId = setInterval(() => alert('tick'), 2000);
+*/
+
+// Метод setTimeout выше планирует следующий вызов прямо после окончания текущего (*).
+  let timerId = setTimeout(function tick() {
+    console.log("tick");
+    timerId = setTimeout(tick, 2000); // (*)
+  }, 2000);
+```
+
+- [x] Вложенный `setTimeout` – более гибкий метод, чем `setInterval`. С его помощью последующий вызов может быть задан по-разному в зависимости от результатов предыдущего.
+
+  + Например, необходимо написать сервис, который отправляет запрос для получения данных на сервер каждые 5 секунд, но если сервер перегружен, то необходимо увеличить интервал запросов до 10, 20, 40 секунд…
+  + Вот псевдокод:
+     
+  ```javascript
+  let delay = 5000;
+
+  let timerId = setTimeout(function request() {
+    ...отправить запрос...
+  
+    if (ошибка запроса из-за перегрузки сервера) {
+      // увеличить интервал для следующего запроса
+      delay *= 2;
+    }
+  
+    timerId = setTimeout(request, delay);
+  
+  }, delay);
+  ```
+
+<br>
+<br>
+
+- [x] Вложенный `setTimeout` позволяет задать задержку между выполнениями более точно, чем `setInterval`.
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/b1a78b69-4e58-4048-a6fd-4cc582eedc81)
+
+<br>
+
+- [x] Результаты:
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/b43ccb2b-2357-4f01-b52d-7d52fe694ec4)
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/18573263-6091-48ea-9dd8-de3c174ec568)
+
+<hr>
+<br>
+<br>
+
+<h2>setTimeout с нулевой задержкой</h2>
+
+
