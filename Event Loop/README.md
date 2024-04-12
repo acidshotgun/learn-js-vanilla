@@ -85,3 +85,71 @@ console.log("Конец скрипта");
 // Обработка промиса
 // Таймаут
 ```
+
+<br>
+
+- [ ] Задача посложнее
+
+```javascript
+  let a;
+
+  let p4 = new Promise(function (resolve) {
+    console.log("TEST A1", a);
+    a = 25;
+    setTimeout(() => {
+      console.log("TEST A2", a);
+      resolve(a);
+    }, 100);
+  });
+  
+  setTimeout(function timeout() {
+    a = 10;
+    console.log("TEST A3", a);
+  }, 100);
+  
+  p4.then(function (b) {
+    console.log("TEST A4", a);
+  });
+  
+  console.log("TEST A5", a);
+  
+  // TEST A1 undefined
+  // TEST A5 25
+  
+  // TEST A2 25
+  // TEST A4 25
+  
+  // TEST A3 10
+```
+
+<br>
+
+- [ ] Еще задачка посложнее
+
+```javascript
+  function resolveAfter2Seconds(x) {
+    console.log(`Какой Х пришёл -> ${x}`);
+  
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(x); //
+      }, 5000);
+    });
+  }
+  
+  async function add1(x) {
+    console.log("add1 Hello");
+    const a = await resolveAfter2Seconds(20);
+    const b = await resolveAfter2Seconds(30);
+    console.log("add1 Bye");
+    return x + a + b;
+  }
+  
+  add1(10).then(console.log);
+  
+  // add1 Hello
+  // Какой Х пришёл -> 20
+  // Какой Х пришёл -> 30
+  // add1 Bye
+  // 60
+```
