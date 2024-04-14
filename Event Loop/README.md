@@ -117,7 +117,7 @@ console.log("Конец скрипта");
   // TEST A5 25
   
   // TEST A2 25
-  // TEST A4 25
+  // TEST A4 25 // promise resolve (setTimeout 100) - поэтому будет ожидать
   
   // TEST A3 10
 ```
