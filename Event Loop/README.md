@@ -24,6 +24,11 @@
 
 [ДИАГРАММА](https://app.diagrams.net/#G1875w0lyQMRABzLuQx39ppm7ouR_G_GxP)
 
+<br>
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/b5fcdff1-0666-4eab-9b62-433b568eaf58)
+
+
 <hr>
 <br>
 <br>
