@@ -106,3 +106,61 @@
   multiply("", 4);
   //TypeError: Argument cannot be a non-integer
 ```
+
+<hr>
+<br>
+<br>
+
+<h2>func.call, func.apply</h2>
+
+- [ ] Методы `func.call`, `func.apply` - используются для передачи контекста ф-ии, с котороым ей необходимо будет работать.
+- [ ] Работают идентично с той разницей, что `call` - принимает аргументы подряд, а `apply` - принимает аргументы массивом.
+
+```javascript
+  "use strict";
+
+  let obj = {
+    name: "Vova",
+    age: 15,
+  };
+  
+  function printName(text, question) {
+    console.log(`${text} ${this.name}, ${question}`);
+  }
+
+  printName("Hi", "how are you?"); // Ошибка, тк this == undefined
+
+  /*
+    Тут ф-я вызывается с привязанным к объекту контекстом
+    this === obj
+  */
+  printName.call(obj, "Hi", "how are you?"); // Hi Vova, how are you?
+  printName.apply(obj, ["Hi", "how are you?"]); // Hi Vova, how are you?
+``` 
+
+<hr>
+<br>
+<br>
+
+<h2>func.bind</h2>
+
+- [ ] `func.bind` - аналогичный метод для привязывания контекста.
+- [ ] Отличие - возвращает новую ф-ю с привязанным контекстом.
+
+```javascript
+  "use strict";
+
+  let obj = {
+    name: "Vova",
+    age: 15,
+  };
+  
+  function printName(text, question) {
+    console.log(`${text} ${this.name}, ${question}`);
+  }
+  
+  let print = printName.bind(obj, "Hi", "how are you?");
+  
+  print(); // Hi Vova, how are you?
+```
+
