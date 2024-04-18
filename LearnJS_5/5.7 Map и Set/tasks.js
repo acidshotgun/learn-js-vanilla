@@ -26,24 +26,23 @@ console.log(unique(values)); // Hare,Krishna,:-O
   alert( aclean(arr) ); // "nap,teachers,ear" или "PAN,cheaters,era"
 */
 
-function aclean(arr) {
-  let map = new Map(); // создаем Map
-
-  for (let word of arr) {
-    // разбиваем слово на буквы, сортируем и объединяем снова в строку
-    let sorted = word.toLowerCase().split("").sort().join(""); // (*)
-
-    map.set(sorted, word); // ключ - сортированная строка, зн-е - само слово
-  }
-
-  return Array.from(map.values()); // Возвращаем массив зн-й нашего Map'a
-}
-
 let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
-console.log(aclean(arr)); // [ 'PAN', 'hectares', 'era' ]
+let aclean = (arr) => {
+  let map = new Map();
 
-// 3) Перебираемые ключи - найти ошибку и исправить ее
+  arr.forEach((item) => {
+    map.set(item.split("").sort().join("").toLowerCase(), item);
+  });
+
+  return Array.from(map.values());
+};
+
+console.log(aclean(arr));
+
+/*
+  3) Перебираемые ключи - найти ошибку и исправить ее
+*/
 
 let map = new Map();
 
@@ -59,15 +58,108 @@ keys.push("more");
 
 console.log(keys);
 
-/////
+///////
+///////
+///////
+// ЗАДАЧИ ОТ CHATH GPT
+///////
+///////
+///////
 
-let obj = {
-  0: "hello",
-  1: "world",
-  2: "hello",
-  length: 3,
+/*
+  1) Напишите функцию, которая принимает строку и возвращает Map, 
+  где ключами являются уникальные символы из строки, а значениями - количество их появлений в строке.
+*/
+
+let str = "aaaaaaaaagtyyterwf";
+
+let letterCounter = (str) => {
+  let map = new Map();
+
+  for (let letter of str) {
+    !map.has(letter)
+      ? map.set(letter, 1)
+      : map.set(letter, map.get(letter) + 1);
+  }
+
+  return map;
 };
 
-let set = new Set(Array.from(obj));
+console.log(letterCounter(str));
 
-console.log(set);
+/*
+  2) Напишите функцию, которая принимает два Set и возвращает новый Set, 
+  содержащий только элементы, которые присутствуют в обоих исходных множествах.
+*/
+
+let obj = { a: 15 };
+
+let set1 = new Set([1, 2, 3, 4, 5, 15, "aboba", "hello", obj]);
+let set2 = new Set([1, "hello", 2, 3, 10, 15, obj]);
+
+let doubles = (set1, set2) => {
+  let arrayFromSet1 = [...set1];
+  let arrayFromSet2 = [...set2];
+  let resultSet = new Set();
+
+  for (let value of arrayFromSet1) {
+    if (arrayFromSet2.includes(value)) {
+      resultSet.add(value);
+    }
+  }
+
+  return resultSet;
+};
+
+console.log(doubles(set1, set2));
+
+/*
+  3) Создайте функцию, которая принимает объект и возвращает Map, 
+  где ключами являются ключи исходного объекта, а значениями - значения соответствующих ключей.
+*/
+
+let obj2 = {
+  name: "sasha",
+  age: 15,
+  isAdmin: true,
+};
+
+let mapFromObject = (obj) => new Map(Object.entries(obj));
+
+console.log(mapFromObject(obj2));
+
+/*
+  4) Напишите функцию, которая принимает массив объектов и возвращает Set, 
+  содержащий уникальные значения определенного свойства объектов из массива.
+*/
+
+let objArray = [
+  {
+    name: "vika",
+    age: 16,
+  },
+  {
+    name: "sasha",
+    age: 18,
+  },
+  {
+    name: "nastya",
+    age: 21,
+  },
+  {
+    name: "nastya",
+    age: 31,
+  },
+];
+
+let someFunc = (objArray, value) => {
+  let set = new Set();
+
+  for (let obj of objArray) {
+    set.add(obj[value]);
+  }
+
+  return set;
+};
+
+console.log(someFunc(objArray, "name"));
