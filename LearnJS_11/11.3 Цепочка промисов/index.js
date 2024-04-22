@@ -11,13 +11,10 @@ new Promise((resolve) => {
       }, 2000);
     });
   })
+  // Этот пусть выполнится сразу ))
   .then((res) => {
     console.log(res);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(res * 2);
-      }, 2000);
-    });
+    return res * 10;
   })
   .then((res) => {
     console.log(res);
