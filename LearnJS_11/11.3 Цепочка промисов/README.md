@@ -106,6 +106,8 @@
 ```javascript
 function loadJson(url) {
   return fetch(url)
+    // fetch возвращается с .json()
+    // Иначе возвращает промис с объектом Response, а не с данными.
     .then(response => response.json());
 }
 
