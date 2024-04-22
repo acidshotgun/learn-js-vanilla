@@ -58,3 +58,13 @@ JSON.parse(moviesJSON).forEach((item) => {
   Main actors: ${item.main_actors.join(", ")}
   `);
 });
+
+const obj2 = `{
+  "name": "vova",
+  "age": 15,
+  "isAdmin": true
+}`;
+
+const backToObj = JSON.parse(obj2);
+
+console.log(typeof backToObj.isAdmin);
