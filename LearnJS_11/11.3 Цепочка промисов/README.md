@@ -95,4 +95,43 @@
 
 <br>
 
-![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/ecc85339-4cc7-4548-bae5-0e0204e57fcb)
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/481d1d65-e2cd-444c-8cc4-f7fc030843ed)
+
+<hr>
+<br>
+<br>
+
+<h2>ПРИМЕР С FETCH</h2>
+
+```javascript
+function loadJson(url) {
+  return fetch(url)
+    .then(response => response.json());
+}
+
+function loadGithubUser(name) {
+  return fetch(`https://api.github.com/users/${name}`)
+    .then(response => response.json());
+}
+
+function showAvatar(githubUser) {
+  return new Promise(function(resolve, reject) {
+    let img = document.createElement('img');
+    img.src = githubUser.avatar_url;
+    img.className = "promise-avatar-example";
+    document.body.append(img);
+
+    setTimeout(() => {
+      img.remove();
+      resolve(githubUser);
+    }, 3000);
+  });
+}
+
+// Используем их:
+loadJson('/article/promise-chaining/user.json')
+  .then(user => loadGithubUser(user.name))
+  .then(showAvatar)
+  .then(githubUser => alert(`Показ аватара ${githubUser.name} завершён`));
+  // ...
+```
