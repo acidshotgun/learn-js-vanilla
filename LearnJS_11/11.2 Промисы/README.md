@@ -116,6 +116,7 @@
           // Чтобы с ним можно было работать
           return res;
         })
+        // Тут OK
         .then((res) => console.log(res.toLowerCase()));
       
       //||||||||||||||||
