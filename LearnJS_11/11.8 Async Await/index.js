@@ -18,3 +18,22 @@ const fetchToChangeRegister = async (str) => {
 };
 
 fetchToChangeRegister("hello world");
+
+///
+///
+///
+async function foo() {
+  const fetchData = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("this is date");
+    }, 1500);
+  });
+
+  // Ожидаем данные из промиса fetchData
+  const data = await fetchData;
+
+  // Выводим данные
+  console.log(data);
+}
+
+foo();
