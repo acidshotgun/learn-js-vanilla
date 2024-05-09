@@ -117,10 +117,11 @@
 - [ ] Если внешней функции нет - ведет себя так, как будто создана в глобальном контексте `window / global`
 
   + Причем `use strict` на это никак не влияет абсолютно.
+     
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/f2c88302-4df4-44e5-aeda-1899424526a5)
 
 ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/56cb52d8-6ed1-4f4e-8cae-89545debaa56)
   
-![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/190765fa-27e6-48a1-912f-5d9342c2bceb)
 
 
     
