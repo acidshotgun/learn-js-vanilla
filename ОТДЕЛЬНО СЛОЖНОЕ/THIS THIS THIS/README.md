@@ -97,8 +97,21 @@
          
       ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/09396827-af5d-4983-b0d2-369cedea619d)
 
-         
-      
+<hr>
+<br>
+<br>
+
+<h2>4. this в функциях конструкторах</h2>
+
+- [ ] Когда ф-я конструктор вызывается при помощи оператора `new` - контекст `this` будет ссылаться на экземпляр созданного объекта.
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/46fe5b1f-9354-4e0f-9514-61c9d3df518b)
+
+<hr>
+<br>
+<br>
+
+<h2>4. this в стрелочных функциях</h2>      
 
 
 
