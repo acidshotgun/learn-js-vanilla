@@ -9,7 +9,9 @@ async function loadJson(url) {
       throw new Error(data.status);
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    // Поч не работает
+    throw error;
   }
 }
 
