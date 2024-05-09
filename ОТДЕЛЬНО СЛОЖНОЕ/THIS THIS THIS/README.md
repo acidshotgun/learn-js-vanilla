@@ -87,7 +87,13 @@
          
       ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/db29cd7e-224b-4aa3-860c-0582c8a49a3d)
 
-      + Та же самая ситуация с таймаутом, если использовать `function decloration` как колбэк.
+  <br>
+       
+    <h3>+ Обычная функция внутри таймаута</h3>
+
+    - [ ] Та же самая ситуация с таймаутом, если использовать `function decloration` как колбэк внутри таймаута.
+       
+      + Поведение => обычная ф-я внутри метода.
          
       ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/09396827-af5d-4983-b0d2-369cedea619d)
 
