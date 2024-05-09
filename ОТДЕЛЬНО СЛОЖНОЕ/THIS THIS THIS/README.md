@@ -113,6 +113,14 @@
 
 <h2>4. this в стрелочных функциях</h2>      
 
+- [ ] `Стрелочная ф-я` не имеет собственного контекста `this`. Она берет его у `внешней` обычной функции
+- [ ] Если внешней функции нет - ведет себя так, как будто создана в глобальном контексте `window / global`
+
+  + Причем `use strict` на это никак не влияет абсолютно.
+
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/56cb52d8-6ed1-4f4e-8cae-89545debaa56)
+  
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/190765fa-27e6-48a1-912f-5d9342c2bceb)
 
 
     
