@@ -14,7 +14,6 @@
   + `use strict` тут роли не играет никакой!!!
 
   ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/e0622cf5-9a63-4f9e-ab55-4a2d8ffcb121)
-  
   ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/9cfdd02b-cdee-43c5-838d-248fa9539b6a)
 
 <hr>
@@ -36,7 +35,6 @@
   <h3>+ Обычная функция</h3>
 
   ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/60b2ce37-5e79-4e99-ae41-536cd0b7fae5)
-
   ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/bd79b10b-4e97-4515-8bd5-23238dc2b7fd)
 
   <br>
@@ -47,7 +45,6 @@
   - [ ] Логика такая же как и обычные вызовы ф-ии, с такими же правилами `use strict`
      
   ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/bb401204-4026-46ca-af3b-b539aa63abe6)
-
   ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/a286aad2-d5a0-46cf-a6ad-b583bed275b5)
 
 <hr>
@@ -72,7 +69,6 @@
       + Логика будет со всеми правилами `use strict`
          
       ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/792f9d37-8459-41ae-bb44-1d346e97e7f8)
-
       ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/51607b20-79dd-4c52-96c0-93c95b20281a)
 
     <br>
@@ -114,15 +110,58 @@
 
 <h2>5. this в стрелочных функциях</h2>      
 
-- [ ] `Стрелочная ф-я` не имеет собственного контекста `this`. Она берет его у `внешней` обычной функции
-- [ ] Если внешней функции нет - ведет себя так, как будто создана в глобальном контексте `window / global`
+- [ ] `Стрелочная ф-я` не имеет собственного контекста `this`. Она берет его из лексического окружения где были `объявлены` или у `внешней` обычной функции.
+- [ ] Если внешней функции нет - ведет себя так, как будто создана в глобальном контексте `window / global`.
 
   + Причем `use strict` на это никак не влияет абсолютно.
      
-![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/f2c88302-4df4-44e5-aeda-1899424526a5)
-
-![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/56cb52d8-6ed1-4f4e-8cae-89545debaa56)
+  <br>
   
+- [x] `use strict` вообще никак не влияет на стрелочные ф-ии.
+     
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/f2c88302-4df4-44e5-aeda-1899424526a5)
+![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/56cb52d8-6ed1-4f4e-8cae-89545debaa56)
+
+<br>
+
+- [x] Нюансы!!!
+
+  <h3>+ Стрелочная функция в глобальной области видимости:</h3>
+
+  - [ ] В глобальной области видимости контекст `this` в `стрелочной ф-ии` будет всегда ссылаться на `global | window`.
+     
+    + `use strict` и вложенность никак не влияет. 
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/0435a417-170c-4d68-b39b-ccae5a379936)
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/1ce54f22-275c-4ed9-9ecb-6727a5973e91)
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/49296f77-705e-4065-8fc8-b392508c9a57)
+
+
+
+  <br>
+     
+  <h3>+ Стрелочная ф-я внутри обычной ф-ии (Глобал)</h3>
+
+  - [ ] `Стрелочные ф-ии` внутри `обычной ф-ии` будут брать контекст из своей внешней `обычной ф-ии`.
+  - [ ] Логика работы будет по принципу `функция внутри функции` со всеми правилами `use strict`.
+     
+    + Т.е. всегда `global | window` или `undefined`.
+       
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/d79b8baf-401a-4eeb-9ef6-86897b2e7024)
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/5d4e27e0-c08e-4b99-b29d-bdc505c2078c)
+
+  <br>
+     
+  <h3>+ Стрелочная ф-я внутри как метод объекта. (Глобал)</h3>
+
+  - [ ] Помним - `стрелка` всегда берет контекст из `внешней обычной ф-ии` или из лекс. окружения где была объявлена.
+  - [ ] В кач-ве самостоятельного метода - она всегда ссылается `global | window` по правилам `стрелочная ф-я в глобале`.
+
+    + Т.е. всегда `window | global` и без влияния `use strict`.
+       
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/bb731b48-7363-4e6d-af47-0702c5a6d6cd)
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/2b633e3a-efb4-4914-89ed-a873e6d27aae)
+
 
 
     
