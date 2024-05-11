@@ -186,3 +186,25 @@
   - [ ] СТрекли внутри ф-и конструктора наследуют `this` - у этой ф-ии конструктора, вместо создания своего как в случае с обычной ф-й.
 
   ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/deb97ffd-4248-456d-a0c2-e0a84006fd1d)
+
+<hr>
+<br>
+<br>
+
+<h2>6. Вызов с привязкой контекста</h2>
+
+  <h3>Методы .call() и .apply()</h3>
+
+  - [ ] Методы `call` и `apply` позволяют вызывать функции с явно определенным контекстом `this` и аргументами.
+  - [ ] Они предоставляют возможность установить значение `this` внутри функции вручную и передать аргументы в виде массива `для apply` или списка `для call`.
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/a6d891f7-576d-4fcf-aae2-2b3c4cd65077)
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/f2c1bf8c-05e6-4207-a790-5b59aaa6b1a6)
+
+  <br>
+
+  - [x] Обы метода привзяывают контекст и гновенно вызывают ф-ю. Разница лишь в передаче аргументов.
+
+    + `call()` - список, `apply()` - массив
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/c4c19186-7795-4ca2-9c06-355d8b411cf6)
