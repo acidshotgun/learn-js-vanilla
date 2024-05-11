@@ -162,6 +162,27 @@
     ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/bb731b48-7363-4e6d-af47-0702c5a6d6cd)
     ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/2b633e3a-efb4-4914-89ed-a873e6d27aae)
 
+  <br>
+     
+  <h3>+ Стрелочная ф-я внутри метода объекта.</h3>
 
+  - [ ] Описано вначале главы о стрелках
 
-    
+  <br>
+
+  - [x] Дополнительно:
+     
+    + Любые стрелочные ф-ии будут брать брать контекст у родительской обычной, что позволяет не терять контекст.
+    + => `Коллбэки` внутри методов.
+    + => `Коллбэки` внутри таймеров и интервалов.
+
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/63da4d8c-5cac-4305-af72-2e7c04b5e942)
+    ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/2d4e6c2f-6bdf-49ab-b485-05670e817222)
+
+  <br>
+     
+  <h3>+ Стрелочная ф-я внутри ф-и конструктора.</h3>
+
+  - [ ] СТрекли внутри ф-и конструктора наследуют `this` - у этой ф-ии конструктора, вместо создания своего как в случае с обычной ф-й.
+
+  ![image](https://github.com/acidshotgun/learn-js-vanilla/assets/117285472/deb97ffd-4248-456d-a0c2-e0a84006fd1d)
