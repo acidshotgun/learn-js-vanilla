@@ -40,6 +40,33 @@ person1.showName(); // " " - пустая строка
   Прим. у window есть св-во name и оно равно " "
 */
 
+const course111 = {
+  title: "JavaScript",
+  duration: "3 months",
+  getInfo() {
+    const foo = () => {
+      const bar = () => {
+        const dodo = () => {
+          console.log(this);
+        };
+
+        dodo();
+      };
+
+      bar();
+    };
+
+    foo();
+  },
+};
+
+course111.getInfo(); // сам объект
+/*
+  Ответ: 
+    Стрелка всегда берет контекст вышестоящей обычной ф-ии
+    Вложенность значения не имеет.
+*/
+
 function Person(name) {
   this.name = name;
 }
@@ -118,6 +145,7 @@ library.showBooksDelayed(); // Book1 is available at " ", Book2 is available at 
     Прим. у window есть св-во name и оно равно " "
 */
 
+// Передача метода объекта как коллбэка
 const manager = {
   employees: ["Alice", "Bob"],
   getEmployeeList() {
@@ -138,6 +166,7 @@ printEmployeeList(manager.getEmployeeList); // TypeError. У undefined нет м
     Будем иметь window.employees.map(), что равно undefined.map() === TypeError
 */
 
+// Передача метода объекта как коллбэка с привязкой контекста.
 const course = {
   title: "JavaScript",
   duration: "3 months",
@@ -159,3 +188,47 @@ executeCallback(course.getInfo.bind(course)); // Так правильно
 
     bind() привязывает контекст но не вызывается сразу. Тут это сработает.
 */
+
+///
+///
+///
+///
+///
+// Потеря контекста 2
+
+const someObject = {
+  title: "ЭКНЦИКЛОПЕДИЯ",
+  outerMethod: function () {
+    const innerArrowFunction = () => {
+      console.log("title:", this.title);
+    };
+
+    innerArrowFunction();
+  },
+};
+
+someObject.outerMethod(); // title: ЭКНЦИКЛОПЕДИЯ
+
+const newOuterMethod = someObject.outerMethod;
+newOuterMethod(); // title: undefined
+/*
+  Ответ: 
+      Немотря на то что стрелка фиксирует контекст в момент объявления =>
+      Внутри методов это не работает и при потере контекста - стрелка тоже его теряет как и ее родительская ф-я
+*/
+
+function Person(name) {
+  this.name = name;
+
+  this.arrowFunction = () => {
+    console.log("name:", this.name);
+  };
+}
+
+const john1 = new Person("John");
+john1.arrowFunction(); // Вызов метода объекта => name: John
+
+// Пытаемся "потерять" контекст
+const extractedArrow = john1.arrowFunction;
+
+extractedArrow(); // Вызов вне контекста => name: John
