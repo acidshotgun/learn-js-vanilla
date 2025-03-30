@@ -22,6 +22,9 @@
 
 - [ ] Очередь, которую формируют такие задачи, называют «очередью макрозадач» (macrotask queue, термин v8).
 
+![image](https://github.com/user-attachments/assets/bce95008-f249-43bd-af27-b3ea5e0e8a6e)
+
+
 [ДИАГРАММА](https://app.diagrams.net/#G1875w0lyQMRABzLuQx39ppm7ouR_G_GxP)
 
 <br>
